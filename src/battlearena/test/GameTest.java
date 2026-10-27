@@ -2,9 +2,22 @@ package battlearena.test;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class GameTest {
 
     int hp;
+
+    @Test
+    void hpNeverNegative() {
+        int hp = 10;
+        int attack = 15;
+
+        int result = hp - attack;
+
+        assertEquals(0, result);
+
+    }
 
 }
 
