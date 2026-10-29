@@ -8,5 +8,6 @@ public abstract class Fighter {
 
 
 
+
     // useSpecial() för attack
 }
