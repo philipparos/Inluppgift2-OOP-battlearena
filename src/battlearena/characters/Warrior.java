@@ -3,8 +3,14 @@ package battlearena.characters;
 import battlearena.game.actionType;
 
 public class Warrior extends Fighter implements actionType {
-    int DEFEND_CONSTANT = 2;
-    int hp = 120;
+    private static int DEFEND_CONSTANT = 2;
+    private static int hp = 120;
+    private static final String SPECIAL_ATTACK_NAME = "Defend";
+    private static final String CHARACTER_NAME = "Warrior";
+
+    public Warrior() {
+        super(CHARACTER_NAME, hp, SPECIAL_ATTACK_NAME);
+    }
 
     @Override
     public int attackDamage() {
