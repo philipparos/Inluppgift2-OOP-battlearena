@@ -5,9 +5,9 @@ import java.util.List;
 
 public abstract class Fighter {
     private List<Fighter> characters = new ArrayList<>();
-    String CHARACTER_NAME;
-    int hp;
-    String SPECIAL_ATTACK_NAME;
+    private final String CHARACTER_NAME;
+    private int hp;
+    private final String SPECIAL_ATTACK_NAME;
 
     private void addCharacters() {
         characters.add(new Warrior());
