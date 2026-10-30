@@ -1,9 +1,11 @@
 package battlearena.characters;
 
+import battlearena.game.ActionType;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Fighter {
+public abstract class Fighter implements ActionType {
     private List<Fighter> characters = new ArrayList<>();
     String CHARACTER_NAME;
     int hp;

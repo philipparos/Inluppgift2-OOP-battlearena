@@ -1,8 +1,6 @@
 package battlearena.characters;
 
-import battlearena.game.actionType;
-
-public class Warrior extends Fighter implements actionType {
+public class Warrior extends Fighter {
     private static int DEFEND_CONSTANT = 2;
     private static int hp = 120;
     private static final String SPECIAL_ATTACK_NAME = "Defend";
