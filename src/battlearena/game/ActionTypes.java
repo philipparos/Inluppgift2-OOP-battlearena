@@ -1,6 +1,6 @@
 package battlearena.game;
 
-public enum actionTypes {
+public enum ActionTypes {
     ATTACK,
     SPECIAL
 }

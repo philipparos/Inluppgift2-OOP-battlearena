@@ -1,6 +1,6 @@
 package battlearena.game;
 
-public interface actionType {
+public interface ActionType {
 
     int attackDamage();
     int specialAttack();
