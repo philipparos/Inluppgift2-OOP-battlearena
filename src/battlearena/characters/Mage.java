@@ -1,8 +1,6 @@
 package battlearena.characters;
 
-import battlearena.game.actionType;
-
-public class Mage extends Fighter implements actionType {
+public class Mage extends Fighter {
     private static int hp = 112;
     private static final String SPECIAL_ATTACK_NAME = "Heal";
     private static final String CHARACTER_NAME = "Mage";
