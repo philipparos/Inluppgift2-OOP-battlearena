@@ -19,16 +19,16 @@ public class Game {
         return 0;
     }
 
-    public actionTypes rollActionType(actionTypes actionType) {
-        actionTypes[] actionsArray = actionTypes.values();
+    public ActionTypes rollActionType(ActionTypes actionType) {
+        ActionTypes[] actionsArray = ActionTypes.values();
         return actionsArray[randomObject.nextInt(actionsArray.length)];
     }
 
-    public void actionTypeRollChecker(actionTypes actionTypeRoll, Fighter fighter) {
-        if(actionTypeRoll == actionTypes.ATTACK) {
+    public void actionTypeRollChecker(ActionTypes actionTypeRoll, Fighter fighter) {
+        if(actionTypeRoll == ActionTypes.ATTACK) {
           fighter.attackDamage();  //kalla på attackmetoden från fighter
         }
-        else if(actionTypeRoll == actionTypes.SPECIAL){
+        else if(actionTypeRoll == ActionTypes.SPECIAL){
             // kalla på specialmetoden från fighter
         }
     }
