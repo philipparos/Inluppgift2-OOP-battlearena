@@ -36,6 +36,10 @@ public abstract class Fighter implements ActionType {
         this.newHp = newHp;
     }
 
+    public int getHp() {
+        return newHp;
+    }
+
     public String getSPECIAL_ATTACK_NAME() {
         return SPECIAL_ATTACK_NAME;
     }
