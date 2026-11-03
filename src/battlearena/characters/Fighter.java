@@ -50,3 +50,4 @@ public abstract class Fighter implements ActionType {
     }
 }
 // useSpecial() för attack
+// kommentar
