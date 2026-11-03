@@ -32,15 +32,21 @@ public abstract class Fighter implements ActionType {
         return MAX_HP;
     }
 
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
     public String getSPECIAL_ATTACK_NAME() {
         return SPECIAL_ATTACK_NAME;
     }
 
 
-
-
-
-
-
-    // useSpecial() för attack
+    public boolean isAlive() {
+        if (hp < 0) {
+            setHp(0);
+            return false;
+        }
+        return hp > 0;
+    }
 }
+// useSpecial() för attack
