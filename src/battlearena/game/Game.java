@@ -2,7 +2,6 @@ package battlearena.game;
 
 import battlearena.characters.Fighter;
 
-import javax.print.attribute.standard.RequestingUserName;
 import java.util.Random;
 
 public class Game {
@@ -26,7 +25,7 @@ public class Game {
 
     public void actionTypeRollChecker(ActionTypes actionTypeRoll, Fighter fighter) {
         if(actionTypeRoll == ActionTypes.ATTACK) {
-          fighter.attackDamage();  //kalla på attackmetoden från fighter
+          fighter.attackDamageRoll();//kalla på attackmetoden från fighter
         }
         else if(actionTypeRoll == ActionTypes.SPECIAL){
             // kalla på specialmetoden från fighter

@@ -12,11 +12,28 @@ public class Hunter extends Fighter {
     }
 
     @Override
-    public int attackDamage() {
+    public int attackDamageRoll() {
         return (int)(Math.random() * 11) + 5;
     }
-
-    public int specialAttack() {
+    @Override
+    public int specialAttackRoll() {
         return (int)(Math.random() * 8) + 15;
+    }
+
+    @Override
+    public int attackDamageXXXXX(Fighter attacker, Fighter defender) {
+        int damage = attackDamageRoll();
+        defender.setHp(defender.getHp() - damage);
+        return defender.getHp();
+    }
+
+    @Override
+    public int attackDamage() {
+        return 0;
+    }
+
+    @Override
+    public int specialAttack() {
+        return 0;
     }
 }

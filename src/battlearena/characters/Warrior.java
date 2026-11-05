@@ -11,11 +11,12 @@ public class Warrior extends Fighter {
     }
 
     @Override
-    public int attackDamage() {
+    public int attackDamageRoll() {
        return (int)(Math.random() * 11) + 8;
     }
 
-    public int specialAttack() {
+    @Override
+    public int specialAttackRoll() {
         int defend = (int)(Math.random() * 8) + 20;
         return defend/DEFEND_CONSTANT;
     }
