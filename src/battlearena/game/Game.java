@@ -6,6 +6,55 @@ import java.util.Random;
 
 public class Game {
     private final Random randomObject = new Random();
+//    Fighter player;
+//    Fighter cpu;
+
+    public void startBattle(Fighter player, Fighter cpu) {
+        boolean isPlayerTurn = randomObject.nextBoolean(); // slumpar vem som börjar, vid true börjar spelaren
+
+        while (player.isAlive() && cpu.isAlive()) { // så länge båda lever körs battle
+            if (isPlayerTurn) { //true
+                // första attacken
+                int firstDamage = player.attackDamage();
+                cpu.setHp(cpu.getHp() - firstDamage);
+                System.out.println("Player makes " + firstDamage + " damage!");
+
+                // andra attacken
+                ActionTypes extraAction = rollActionType(null);// slumpar fram ATTACK eller SPECIAL, null eftersom metoden har parametrar
+
+                if (extraAction == ActionTypes.ATTACK) {
+                    int extraDamage = player.attackDamage();
+                    cpu.setHp(cpu.getHp() - extraDamage);
+                    System.out.println("Player makes " + extraDamage + " damage!");
+                } else {
+                    int specialDamage = player.specialAttack();
+                    cpu.setHp(cpu.getHp() - specialDamage);
+                    System.out.println("Player makes " + specialDamage + " damage!");
+                }
+                // behövs kanske läggas i en metod för att inte behöva upprepa för datorns tur.
+
+                // om vi ska ha en utskrift för specialattack kommer vi behöva en if-sats eller liknande för att kunna kolla
+                // vilken specialattack i koppling till vilken karaktär. alla specialattacker gör ju inte damage
+                // eventuellt får vi bryta ut dom och skapa en tredje handling??
+                // attack är ju alltid attack men specialattack kan ju vara 3 olika
+                // vi får nog kika på metoderna i subklasserna ev lägga till
+                // annan tanke vore om vi har kvar ATTACK och SPECIAL som enums och lägger till en tredje handling
+                // ev en metod i varje subklass
+                // interfacet håller ju metoder men man kanske även behöver ha egna metoder för heal, defend osv
+
+            } else {
+                // datorns tur
+                int cpuDamage = cpu.attackDamage();
+                player.setHp(player.getHp() - cpuDamage);
+
+                System.out.println("The computer makes " + cpuDamage + " damage");
+            }
+            isPlayerTurn = !isPlayerTurn;
+        }
+
+
+    }
+
 
     public int makeActions(Fighter fighterOne, Fighter fighterTwo){
         for(int turnCounter = 0; turnCounter <= 1; turnCounter++){
