@@ -22,9 +22,14 @@ public class Hunter extends Fighter {
 
     @Override
     public int attackDamageXXXXX(Fighter attacker, Fighter defender) {
+       // if fighter == warrrior
+           //     if warrior actiontypeRole == special (akta dig)
+        //weakdamage = damage/2;
+        //else
         int damage = attackDamageRoll();
         defender.setHp(defender.getHp() - damage);
         return defender.getHp();
+
     }
 
     @Override
@@ -34,6 +39,7 @@ public class Hunter extends Fighter {
 
     @Override
     public int specialAttack() {
+        // fett mycket damage
         return 0;
     }
 }
