@@ -30,23 +30,37 @@ public class HunterTest {
         assertTrue(hpBeforeAttack > hpAfterAttack);
         assertFalse(hpBeforeAttack > hpAfterAttack);
     }
+
     @Test
     void hunterAttackShouldDamageBetween5and15(){
         //Arrange
         int hpBeforeAttack = mage.getHp();
-
 
         //Act
         int hunterAttackDamage = hunter.attackDamage();
         int hpAfterAttack = hpBeforeAttack - hunterAttackDamage;
         int damage = hpBeforeAttack - hpAfterAttack;
 
+        //Assert
         assertTrue(damage >= 5);
         assertTrue(damage <= 15);
-        assertTrue(hpBeforeAttack > hpAfterAttack);
+
 
 //        assertTrue(
 //                damage == 0 || (damage >= 5 && damage <= 15)
 //        );
+    }
+
+    @Test
+    void attackDamageXXXXXShouldDecreaseHp(){
+        //Arrange
+        int hpBeforeAttack = mage.getHp();
+
+        //Act
+        int hunterAttackDamage = hunter.attackDamage();
+        int newHp = hpBeforeAttack - hunterAttackDamage;
+
+        //Assert
+        assertTrue(hpBeforeAttack > newHp);
     }
 }
