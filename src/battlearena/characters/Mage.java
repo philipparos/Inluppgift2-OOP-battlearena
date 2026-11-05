@@ -11,11 +11,12 @@ public class Mage extends Fighter {
     }
 
     @Override
-    public int attackDamage() {
+    public int attackDamageRoll() {
         return (int)(Math.random() * 11) + 6;
     }
 
-    public int specialAttack() {
+    @Override
+    public int specialAttackRoll() {
         return (int)(Math.random() * 8) + 20;
     }
 }

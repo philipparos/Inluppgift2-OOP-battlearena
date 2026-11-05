@@ -19,7 +19,7 @@ public class HunterTest {
 
     @Test
     void hunterAttackDamageShouldDamageMage(){
-        int hunterAttack = hunter.attackDamage();
+        int hunterAttack = hunter.attackDamageRoll();
         int hpBeforeAttack = mage.getHp();
 
         //Act
@@ -37,7 +37,7 @@ public class HunterTest {
 
 
         //Act
-        int hunterAttackDamage = hunter.attackDamage();
+        int hunterAttackDamage = hunter.attackDamageRoll();
         int hpAfterAttack = hpBeforeAttack - hunterAttackDamage;
         int damage = hpBeforeAttack - hpAfterAttack;
 
