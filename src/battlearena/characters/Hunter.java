@@ -20,7 +20,7 @@ public class Hunter extends Fighter {
         return (int)(Math.random() * 8) + 15;
     }
 
-    @Override
+//    @Override
     public int attackDamageXXXXX(Fighter attacker, Fighter defender) {
        // if fighter == warrrior
            //     if warrior actiontypeRole == special (akta dig)

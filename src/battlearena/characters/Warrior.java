@@ -20,4 +20,14 @@ public class Warrior extends Fighter {
         int defend = (int)(Math.random() * 8) + 20;
         return defend/DEFEND_CONSTANT;
     }
+
+    @Override
+    public int attackDamage() {
+        return 0;
+    }
+
+    @Override
+    public int specialAttack() {
+        return 0;
+    }
 }
