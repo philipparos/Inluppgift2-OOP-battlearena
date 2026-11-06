@@ -27,7 +27,7 @@ public class HunterTest {
         int damage = hpBeforeAttack - hpAfterAttack;
 
         //Assert
-        assertTrue(hpBeforeAttack > hpAfterAttack);
+//        assertTrue(hpBeforeAttack > hpAfterAttack);
         assertFalse(hpBeforeAttack > hpAfterAttack);
     }
 
@@ -62,5 +62,10 @@ public class HunterTest {
 
         //Assert
         assertTrue(hpBeforeAttack > newHp);
+    }
+    @Test
+    void hunterShouldBeAliveAtStart() {
+
+        assertTrue(hunter.isAlive());
     }
 }

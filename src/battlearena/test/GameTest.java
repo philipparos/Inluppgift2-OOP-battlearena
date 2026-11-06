@@ -1,24 +1,40 @@
 package battlearena.test;
 
+import battlearena.characters.Fighter;
+import battlearena.characters.Hunter;
+import battlearena.characters.Mage;
+import battlearena.characters.Warrior;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GameTest {
 
-    int hp;
+    Fighter fighter = new Mage();
 
     @Test
-    void hpNeverNegative() {
-        int hp = 10;
-        int attack = 15;
+    void shouldSetHpToZeroWhenHpIsNegative() {
+        fighter.setHp(-5);
+        fighter.isAlive();
 
-        int result = hp - attack;
-
-        assertEquals(0, result);
-
+        assertEquals(0, fighter.getHp());
     }
 
+    @Test
+    void shouldReturnWarriorWhenIndexIsZero() {
+        List<Fighter> characters = new ArrayList<>();
+        characters.add(new Warrior());
+        characters.add(new Mage());
+        characters.add(new Hunter());
+
+        Fighter fighter = characters.get(0);
+
+        assertEquals("Warrior", fighter.getCHARACTER_NAME());
+    }
 }
 
 //Vad du bör göra
