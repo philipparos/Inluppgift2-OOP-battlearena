@@ -6,17 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Fighter implements ActionType {
-    private List<Fighter> characters = new ArrayList<>();
     private final String CHARACTER_NAME;
     private static int MAX_HP;
     private int newHp;
     private final String SPECIAL_ATTACK_NAME;
-
-    private void addCharacters() {
-        characters.add(new Warrior());
-        characters.add(new Mage());
-        characters.add(new Hunter());
-    }
 
     public Fighter(String CHARACTER_NAME, int MAX_HP, String SPECIAL_ATTACK_NAME) {
         this.CHARACTER_NAME = CHARACTER_NAME;

@@ -19,4 +19,14 @@ public class Mage extends Fighter {
     public int specialAttackRoll() {
         return (int)(Math.random() * 8) + 20;
     }
+
+    @Override
+    public int attackDamage() {
+        return 0;
+    }
+
+    @Override
+    public int specialAttack() {
+        return 0;
+    }
 }
