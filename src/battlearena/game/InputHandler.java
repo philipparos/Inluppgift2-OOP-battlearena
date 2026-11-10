@@ -14,16 +14,9 @@ public class InputHandler {
         this.scanner = scanner;
     }
 
-    /* public String showMenu() {
-        System.out.println("Welcome to the Battle Arena game");
-        String name = askForName();
-        int fighterChoice = chooseFighter();
-        return fighterChoice + "," + name;
+    public static void welcomeMessage() {
+        System.out.println("Welcome to the Battle Arena game"); // skriver ut detta i början av programmet
     }
-
-    public void inputSplit(){
-
-    } */
 
     public String askForName() {
         System.out.println("Write your name");

@@ -26,7 +26,7 @@ public class Game {
         return new ArrayList<Fighter>(characters);
     }
 
-    public List<Fighter> removePlayerChoice(List<Fighter> list, Fighter humanfighter) {
+    public static List<Fighter> removePlayerChoice(List<Fighter> list, Fighter humanfighter) {
         for (Fighter fighter:  list) {
             if (humanfighter.equals(fighter)) {
                 list.remove(fighter);
