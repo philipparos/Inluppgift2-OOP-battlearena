@@ -14,10 +14,6 @@ public class InputHandler {
         this.scanner = scanner;
     }
 
-    public static void welcomeMessage() {
-        System.out.println("Welcome to the Battle Arena game"); // skriver ut detta i början av programmet
-    }
-
     public String askForName() {
         System.out.println("Write your name");
         while(true){
@@ -29,12 +25,12 @@ public class InputHandler {
         }
     }
 
-    public int menuNumberChoice() {
+    public Fighter menuNumberChoice() {
         System.out.println("Pick a fighter: ");// behöver skriva ut listan
         while(true){
             String menuNumberInput = scanner.nextLine().trim();
             if(menuNumberInput.matches("[1-3]")) {
-                return Integer.parseInt(menuNumberInput);
+                return ListHandler.characters.get(Integer.parseInt(menuNumberInput) -1);
             }
             System.out.println("You can only pick a character between 1-3!");
         }
