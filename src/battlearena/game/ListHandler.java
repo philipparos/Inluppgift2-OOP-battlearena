@@ -8,16 +8,16 @@ import java.util.List;
 
 public class ListHandler {
 
-    static List<Fighter> characters = new ArrayList<>();
+    static List<Fighter> characters = List.of(
+            new Warrior(),
+            new Mage(),
+            new Hunter()
+    );
 
-    public void addCharacters() {
-        characters.add(new Warrior());
-        characters.add(new Mage());
-        characters.add(new Hunter());
-    }
+    public ArrayList<Fighter> avaliableFighters = new ArrayList<Fighter>(characters);
 
-    public ArrayList<Fighter> getFightersList() {
-        return new ArrayList<Fighter>(characters);
+    public static Fighter getFighterByIndex(int i) {
+        return characters.get(i);
     }
 
 
@@ -25,11 +25,11 @@ public class ListHandler {
         return characters;
     }
 
-    public static List<Fighter> removePlayerChoice(List<Fighter> list, Fighter humanfighter) {
-        for (Fighter fighter : list) {
+    public static List<Fighter> removePlayerChoice(List<Fighter> avaliableFighters, Fighter humanfighter) {
+        for (Fighter fighter : avaliableFighters) {
             if (humanfighter.equals(fighter)) {
-                list.remove(fighter);
-                return list;
+                avaliableFighters.remove(fighter);
+                return avaliableFighters;
             }
         }
         return null;

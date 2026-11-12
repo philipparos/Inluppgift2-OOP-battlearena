@@ -25,35 +25,14 @@ public class InputHandler {
         }
     }
 
-    public Fighter menuNumberChoice() {
+    public int menuNumberChoice() {
         System.out.println("Pick a fighter: ");// behöver skriva ut listan
-        while(true){
+        while (true) {
             String menuNumberInput = scanner.nextLine().trim();
-            if(menuNumberInput.matches("[1-3]")) {
-                return ListHandler.characters.get(Integer.parseInt(menuNumberInput) -1);
+            if (menuNumberInput.matches("[1-3]")) {
+                return Integer.parseInt(menuNumberInput);
             }
             System.out.println("You can only pick a character between 1-3!");
-        }
-    }
-
-    public Fighter chooseFighter() {
-        System.out.println("Choose your fighter");
-        int fighter = scanner.nextInt();
-
-        switch (fighter) {
-            case 1 -> {
-                return new Warrior();
-            }
-            case 2 -> {
-                return new Mage();
-            }
-            case 3 -> {
-                return new Hunter();
-            }
-            default -> {
-                System.out.println("Invalid choice");
-                return null;
-            }
         }
     }
 }
