@@ -46,5 +46,3 @@ public abstract class Fighter implements ActionType {
         return newHp > 0;
     }
 }
-// useSpecial() för attack
-// kommentar

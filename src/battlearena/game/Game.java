@@ -35,17 +35,4 @@ public class Game {
             isPlayerTurn = !isPlayerTurn;
         }
     }
-
-    public int makeActions(Fighter fighterOne, Fighter fighterTwo){
-        for(int turnCounter = 0; turnCounter <= 1; turnCounter++){
-
-        }
-        // ta in två fighters. rolla för actiontype, if-elsesats för o kolla vad det blev, utföra metoden
-        //specialattack eller attack genom o kalla på den, ta reda på vad jag ens ska returnera i metoden
-
-
-        return 0;
-    }
-
-    //randomize attack
 }

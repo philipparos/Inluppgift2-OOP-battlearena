@@ -8,11 +8,15 @@ public class CPUPlayer extends Player {
 
 
     public CPUPlayer() {
-        super(CPU_NAME_CONSTANT);
+//        super(CPU_NAME_CONSTANT);
 
     }
     private int generateFighterNumber() {
         return (int)(Math.random() * 3) + 1;
 
+    }
+    public CPUPlayer createCpuPlayer() {
+//        ListHandler.removePlayerChoice(playerChoice);
+        return null;
     }
 }
