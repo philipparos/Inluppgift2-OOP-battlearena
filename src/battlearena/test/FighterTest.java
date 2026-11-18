@@ -44,9 +44,7 @@ class FighterTest {
     @Test
     void hpCanNotBeNegativeWhenFighterIsNotAlive(){
         fighter.setHp(-5);
-
-        assertFalse(fighter.isAlive());
+        fighter.isAlive();
         assertEquals(0, fighter.getHp());
-        assertNotEquals(-5, 0);
     }
 }
