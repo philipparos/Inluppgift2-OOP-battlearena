@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class InputHandler {
     private final Scanner scanner;
-
+    String menuNumberInput;
     public InputHandler(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -28,11 +28,12 @@ public class InputHandler {
     public int menuNumberChoice() {
         System.out.println("Pick a fighter: ");// behöver skriva ut listan
         while (true) {
-            String menuNumberInput = scanner.nextLine().trim();
+            menuNumberInput = scanner.nextLine().trim();
             if (menuNumberInput.matches("[1-3]")) {
                 return Integer.parseInt(menuNumberInput);
             }
             System.out.println("You can only pick a character between 1-3!");
         }
     }
+
 }

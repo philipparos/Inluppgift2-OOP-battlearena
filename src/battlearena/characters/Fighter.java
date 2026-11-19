@@ -2,35 +2,33 @@ package battlearena.characters;
 
 import battlearena.game.ActionType;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Fighter implements ActionType {
-    private final String CHARACTER_NAME;
-    private static int MAX_HP;
-    private int newHp;
+    private final String FIGHTER_NAME;
+    private int maxHp;
+    private int currentHp;
+    //private int MIN_HP;
     private final String SPECIAL_ATTACK_NAME;
 
-    public Fighter(String CHARACTER_NAME, int MAX_HP, String SPECIAL_ATTACK_NAME) {
-        this.CHARACTER_NAME = CHARACTER_NAME;
-        this.newHp = MAX_HP;
+    public Fighter(String FIGHTER_NAME, int maxHp, String SPECIAL_ATTACK_NAME) {
+        this.FIGHTER_NAME = FIGHTER_NAME;
+        this.maxHp = maxHp;
         this.SPECIAL_ATTACK_NAME = SPECIAL_ATTACK_NAME;
     }
 
-    public String getCHARACTER_NAME() {
-        return CHARACTER_NAME;
+    public String getFIGHTER_NAME() {
+        return FIGHTER_NAME;
     }
 
-    public int getMAX_HP() {
-        return MAX_HP;
+    public int getMaxHp() {
+        return maxHp;
     }
 
-    public void setHp(int newHp) {
-        this.newHp = newHp;
+    public void setHp(int currentHp) {
+        this.currentHp = currentHp;
     }
 
     public int getHp() {
-        return newHp;
+        return currentHp;
     }
 
     public String getSPECIAL_ATTACK_NAME() {
@@ -39,10 +37,7 @@ public abstract class Fighter implements ActionType {
 
 
     public boolean isAlive() {
-        if (newHp < 0) {
-            setHp(0);
-            return false;
-        }
-        return newHp > 0;
+        int MIN_HP = 0;
+        return currentHp > MIN_HP;
     }
 }

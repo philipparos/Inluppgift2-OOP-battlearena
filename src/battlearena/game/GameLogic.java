@@ -1,16 +1,14 @@
 package battlearena.game;
 import battlearena.characters.Fighter;
-import battlearena.characters.Hunter;
-import battlearena.characters.Mage;
-import battlearena.characters.Warrior;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Game {
+public class GameLogic {
     private GameUtility gameUtility = new GameUtility();
     private final Random randomObject = new Random();
-    private List<Fighter> characters = new ArrayList<>();
+    //private List<Fighter> characters = new ArrayList<>();
 //    Fighter player;
 //    Fighter cpu;
 
@@ -20,17 +18,21 @@ public class Game {
         while (player1.isAlive() && player2.isAlive()) { // så länge båda lever körs battle
             if (isPlayerTurn) { //true
                 gameUtility.firstAttack(player1, player2);
-
-                // andra attacken
+                    if (!player2.isAlive()){ // kanske onödigt om mage healar sig själv
+                        break;
+                    }
 
                 gameUtility.secondAction(player1, player2);
 
             } else {
                 // datorns tur
-                int cpuDamage = player2.attackDamage();
-                player1.setHp(player2.getHp() - cpuDamage);
+                gameUtility.firstAttack(player2, player1);
+                if (!player1.isAlive()){ // kanske onödigt om mage healar sig själv
+                    break;
+                }
 
-                System.out.println("The computer makes " + cpuDamage + " damage");
+                gameUtility.secondAction(player2, player1);
+
             }
             isPlayerTurn = !isPlayerTurn;
         }

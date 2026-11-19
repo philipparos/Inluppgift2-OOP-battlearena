@@ -4,19 +4,17 @@ import battlearena.characters.Fighter;
 
 public class CPUPlayer extends Player {
 
-   private static final String CPU_NAME_CONSTANT = "Computer";
+   static final String CPU_NAME_CONSTANT = "Computer";
 
 
-    public CPUPlayer() {
-//        super(CPU_NAME_CONSTANT);
+    public CPUPlayer(Fighter fighter) {
+        super(CPU_NAME_CONSTANT,fighter);
+
 
     }
-    private int generateFighterNumber() {
-        return (int)(Math.random() * 3) + 1;
 
-    }
-    public CPUPlayer createCpuPlayer() {
-//        ListHandler.removePlayerChoice(playerChoice);
-        return null;
-    }
+
 }
+
+
+
