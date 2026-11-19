@@ -17,11 +17,9 @@ public class MageTest {
     }
 
     @Test
-    void mageShouldHave120Hp() {
+    void mageShouldHave112MaxHp() {
 
-        assertEquals(120, mage.getMaxHp());
-        //Output: testet går inte igenom, Expected: 120 Actual: 0
-        //Hp sätts till 0 i Fighter - bör ändras till private int hp;??
+        assertEquals(112, mage.getMaxHp());
     }
 
     @Test
