@@ -12,6 +12,7 @@ public abstract class Fighter implements ActionType {
     public Fighter(String FIGHTER_NAME, int maxHp, String SPECIAL_ATTACK_NAME) {
         this.FIGHTER_NAME = FIGHTER_NAME;
         this.maxHp = maxHp;
+        this.currentHp = maxHp;
         this.SPECIAL_ATTACK_NAME = SPECIAL_ATTACK_NAME;
     }
 
