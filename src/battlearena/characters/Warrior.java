@@ -1,7 +1,7 @@
 package battlearena.characters;
 
 public class Warrior extends Fighter {
-    private static int DEFEND_CONSTANT = 2;
+    private static int defendPercentage;
     private static final int MAX_HP = 120;
     private static final String SPECIAL_ATTACK_NAME = "Defend";
     private static final String CHARACTER_NAME = "Warrior";
@@ -16,18 +16,20 @@ public class Warrior extends Fighter {
     }
 
     @Override
-    public int specialAttackRoll() {
-        int defend = (int)(Math.random() * 8) + 20;
-        return defend/DEFEND_CONSTANT;
+    public int specialActionRoll() {
+        return (int)(Math.random() * 31) + 20; // 20-50%
     }
 
     @Override
-    public int attackDamage() {
-        return 0;
+    public int actualAttackDamage(Fighter defender) {
+        return Math.min(attackDamageRoll(), defender.getHp());
+    }
+    public int defendPercentageCalculator() {
+        return specialActionRoll() /100;
     }
 
-    @Override
-    public int specialAttack() {
-        return 0;
+//    public boolean defend() {
+//        return defendPercentageCalculator(specialActionRoll());
+
     }
-}
+

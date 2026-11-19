@@ -51,18 +51,18 @@ public class HunterTest {
 //        );
     }
 
-    @Test
-    void attackDamageXXXXXShouldDecreaseHp(){
-        //Arrange
-        int hpBeforeAttack = mage.getHp();
-
-        //Act
-        int hunterAttackDamage = hunter.attackDamage();
-        int newHp = hpBeforeAttack - hunterAttackDamage;
-
-        //Assert
-        assertTrue(hpBeforeAttack > newHp);
-    }
+//    @Test
+//    void attackDamageXXXXXShouldDecreaseHp(){
+//        //Arrange
+//        int hpBeforeAttack = mage.getHp();
+//
+//        //Act
+//        int hunterAttackDamage = hunter.attackDamage();
+//        int newHp = hpBeforeAttack - hunterAttackDamage;
+//
+//        //Assert
+//        assertTrue(hpBeforeAttack > newHp);
+//    }
     @Test
     void hunterShouldBeAliveAtStart() {
 

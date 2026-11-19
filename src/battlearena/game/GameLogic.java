@@ -13,25 +13,41 @@ public class GameLogic {
 //    Fighter cpu;
 
     public void startBattle(Fighter player1, Fighter player2) {
-        boolean isPlayerTurn = randomObject.nextBoolean(); // slumpar vem som börjar, vid true börjar spelaren
+        boolean isPlayerTurn = randomObject.nextBoolean();// slumpar vem som börjar, vid true börjar spelaren
+        int firstActionDamage;
 
         while (player1.isAlive() && player2.isAlive()) { // så länge båda lever körs battle
             if (isPlayerTurn) { //true
-                gameUtility.firstAttack(player1, player2);
-                    if (!player2.isAlive()){ // kanske onödigt om mage healar sig själv
-                        break;
-                    }
+
+                    // Philippas
+                    firstActionDamage = player1.actualAttackDamage(player2);
+                player2.setHp(player2.getHp() - firstActionDamage);
+
+                if (!player2.isAlive()) {
+                    System.out.println("!!!!!!" + player1.getFIGHTER_NAME() + " does " + firstActionDamage + " damage! " + player2.getFIGHTER_NAME() + " died!");
+                    break;
+
+                }
+                    System.out.println("!!!!!1" + player1.getFIGHTER_NAME() + " does " + firstActionDamage + " damage! " + player2.getFIGHTER_NAME() + " current hp: " + player2.getHp()); //
+
 
                 gameUtility.secondAction(player1, player2);
 
             } else {
                 // datorns tur
-                gameUtility.firstAttack(player2, player1);
-                if (!player1.isAlive()){ // kanske onödigt om mage healar sig själv
+                firstActionDamage = player2.actualAttackDamage(player1);
+                player1.setHp(player1.getHp() - firstActionDamage);
+                if (!player1.isAlive()) {
+                    System.out.println("!!!!!!" + player1.getFIGHTER_NAME() + " does " + firstActionDamage + " damage! " + player2.getFIGHTER_NAME() + " died!");// kanske onödigt om mage healar sig själv
                     break;
+
                 }
+                System.out.println("!!!!!1" + player1.getFIGHTER_NAME() + " does " + firstActionDamage + " damage! " + player2.getFIGHTER_NAME() + " current hp: " + player2.getHp());
+
+
 
                 gameUtility.secondAction(player2, player1);
+
 
             }
             isPlayerTurn = !isPlayerTurn;
