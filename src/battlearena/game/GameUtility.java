@@ -13,8 +13,9 @@ public class GameUtility {
     public void firstAttack(Fighter attacker, Fighter defender) {
         int firstDamage = attacker.attackDamage();
         defender.setHp(defender.getHp() - firstDamage);
-        System.out.println(attacker.getCHARACTER_NAME() + " makes " + firstDamage + " damage!");
-        System.out.println(defender.getCHARACTER_NAME() + " has " + defender.getHp() + " hp");
+        System.out.println(attacker.getFIGHTER_NAME() + " makes " + firstDamage + " damage!");
+        System.out.println(defender.getFIGHTER_NAME() + " has " + defender.getHp() + " hp");
+
     }
 
     public void secondAction(Fighter attacker, Fighter defender) {

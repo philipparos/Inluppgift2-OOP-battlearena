@@ -8,37 +8,39 @@ import java.util.List;
 
 public class ListHandler {
 
-    static List<Fighter> characters = List.of(
+    static List<Fighter> fighters = List.of(
             new Warrior(),
             new Mage(),
             new Hunter()
     );
 
-    public ArrayList<Fighter> avaliableFighters = new ArrayList<Fighter>(characters);
+    public ArrayList<Fighter> availableFighters() {
+        return new ArrayList<Fighter>(fighters);
+    }
 
     public static Fighter getFighterByIndex(int i) {
-        return characters.get(i);
+        return fighters.get(i);
     }
 
 
-    public List<Fighter> getCharacters() {
-        return characters;
+    public List<Fighter> getFighters() {
+        return fighters;
     }
 
-    public static List<Fighter> removePlayerChoice(List<Fighter> avaliableFighters, Fighter humanfighter) {
-        for (Fighter fighter : avaliableFighters) {
+    public static List<Fighter> removePlayerChoice(List<Fighter> availableFighters, Fighter humanfighter) {
+        for (Fighter fighter : availableFighters) {
             if (humanfighter.equals(fighter)) {
-                avaliableFighters.remove(fighter);
-                return avaliableFighters;
+                availableFighters.remove(fighter);
+                return availableFighters;
             }
         }
         return null;
     }
 
-    public void printCharacterName() {
+    public void printFighterTypes() {
         int counter = 1;
-        for (Fighter fighter : characters) {
-            System.out.println(counter + ". " + fighter.getCHARACTER_NAME());
+        for (Fighter fighter : fighters) {
+            System.out.println(counter + ". " + fighter.getFIGHTER_NAME());
             counter++;
         }
     }

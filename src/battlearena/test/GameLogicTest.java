@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class GameTest {
+class GameLogicTest {
 
     Fighter fighter = new Mage();
 
@@ -33,7 +33,7 @@ class GameTest {
 
         Fighter fighter = characters.get(0);
 
-        assertEquals("Warrior", fighter.getCHARACTER_NAME());
+        assertEquals("Warrior", fighter.getFIGHTER_NAME());
     }
 }
 

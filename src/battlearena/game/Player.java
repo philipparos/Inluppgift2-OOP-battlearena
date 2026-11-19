@@ -18,6 +18,7 @@ public class Player {
         this.fighter = fighter;
     }
 
+
     public Player createPlayer(String name, Fighter fighter){
         return new Player(name, fighter);
     }

@@ -18,7 +18,7 @@ public class WarriorTest {
     @Test
     void warriorShouldHave120Hp() {
 
-        assertEquals(120, warrior.getMAX_HP());
+        assertEquals(120, warrior.getMaxHp());
         //Output: testet går inte igenom, Expected: 120 Actual: 0
         //Hp sätts till 0 i Fighter, bör ändras till private int hp;??
     }

@@ -44,7 +44,7 @@ public class PlayerTest {
     void shouldCreatePlayerWithFighter(){
         player = playerCreator.createPlayer("Olof Palme", warrior);
 
-        assertEquals("Warrior", player.getFighter().getCHARACTER_NAME());
+        assertEquals("Warrior", player.getFighter().getFIGHTER_NAME());
         assertEquals("Olof Palme", player.getName());
     }
 }
