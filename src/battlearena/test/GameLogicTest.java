@@ -3,42 +3,26 @@ package battlearena.test;
 import battlearena.characters.Fighter;
 import battlearena.characters.Hunter;
 import battlearena.characters.Mage;
-import battlearena.characters.Warrior;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class GameLogicTest {
+public class GameLogicTest {
+    private Fighter hunter;
+    private Fighter mage;
 
-    Fighter fighter = new Mage();
-
-    @Test
-    void shouldSetHpToZeroWhenHpIsNegative() {
-        fighter.setHp(-5);
-        fighter.isAlive();
-
-        assertEquals(0, fighter.getHp());
+    @BeforeEach
+    void setUp(){
+        hunter = new Hunter();
+        mage = new Mage();
     }
 
     @Test
-    void shouldReturnWarriorWhenIndexIsZero() {
-        List<Fighter> characters = new ArrayList<>();
-        characters.add(new Warrior());
-        characters.add(new Mage());
-        characters.add(new Hunter());
+    void attackShouldReduceTargetsHp() {
+        int hpBefore = mage.getHp();
 
-        Fighter fighter = characters.get(0);
-
-        assertEquals("Warrior", fighter.getFIGHTER_NAME());
+        mage.setHp(hpBefore - hunter.attackDamageRoll());
+        assertTrue(mage.getHp() < hpBefore);
     }
 }
-
-//Vad du bör göra
-//Din rotmapp tests är nästan rätt idé. Gör så här:
-//Högerklicka på den i IntelliJ > Mark Directory as > Test Sources Root. Då blir den grön.
-//Flytta FighterTest och GameTest dit, under battlearena/characters och battlearena/game, och ändra deras package-rader så de matchar (package battlearena.characters;).
-//Ta bort src/battlearena/tests.

@@ -7,29 +7,36 @@ import battlearena.characters.Warrior;
 import battlearena.game.ListHandler;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameLogicSetUpTest {
     //ändring/komplettering av tidigare TDD
 
     @Test
-    void getFighterByIndexShouldReturnWarriorWhenIndexIsZero(){
+    void shouldReturnWarriorWhenIndexIsZero() {
         Fighter fighter = ListHandler.getFighterByIndex(0);
 
         assertTrue(fighter instanceof Warrior);
     }
 
     @Test
-    void getFighterByIndexShouldReturnMageWhenIndexIsOne(){
+    void shouldReturnMageWhenIndexIsOne() {
         Fighter fighter = ListHandler.getFighterByIndex(1);
 
         assertTrue(fighter instanceof Mage);
     }
 
     @Test
-    void getFighterByIndexShouldReturnHunterWhenIndexIsTwo(){
+    void shouldReturnHunterWhenIndexIsTwo() {
         Fighter fighter = ListHandler.getFighterByIndex(2);
 
         assertTrue(fighter instanceof Hunter);
+    }
+
+    @Test
+    void shouldThrowExceptionWhenIndexDoesNotExist() {
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> ListHandler.getFighterByIndex(99));
     }
 }

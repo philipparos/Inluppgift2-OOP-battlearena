@@ -8,8 +8,7 @@ import battlearena.game.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
 
@@ -22,29 +21,21 @@ public class PlayerTest {
     Fighter hunter = new Hunter();
 
     @BeforeEach
-        void setUP() {
+    void setUP() {
         playerCreator = new Player();
     }
 
     @Test
-    void shouldCreatePlayer(){
-        player = playerCreator.createPlayer("Leifi", hunter);
-
-        assertNotNull(player);
-    }
-
-    @Test
-    void shouldCreatePlayerWithName(){
+    void shouldCreatePlayerWithName() {
         player = playerCreator.createPlayer("Kurtan", mage);
 
         assertEquals("Kurtan", player.getName());
     }
 
     @Test
-    void shouldCreatePlayerWithFighter(){
+    void shouldCreatePlayerWithFighter() {
         player = playerCreator.createPlayer("Olof Palme", warrior);
 
-        assertEquals("Warrior", player.getFighter().getFIGHTER_NAME());
-        assertEquals("Olof Palme", player.getName());
+        assertSame(warrior, player.getFighter());
     }
 }
