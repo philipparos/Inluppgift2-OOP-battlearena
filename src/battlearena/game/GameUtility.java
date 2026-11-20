@@ -8,34 +8,33 @@ import battlearena.characters.Warrior;
 import java.util.Random;
 
 public class GameUtility {
+    BattlePrinter battlePrinter = new BattlePrinter();
 
     public static void welcomeMessage() {
         System.out.println("Welcome to the Battle Arena game"); // skriver ut detta i början av programmet
     }
 
-    public void firstAttack(Fighter attacker, Fighter defender) {
+    public int firstAttack(Fighter attacker, Fighter defender) {
         int firstDamage = attacker.actualAttackDamage(defender);
         defender.setHp(defender.getHp() - firstDamage);
-        System.out.println(attacker.getFIGHTER_NAME() + " makes " + firstDamage + " damage!");
-        System.out.println(defender.getFIGHTER_NAME() + " has " + defender.getHp() + " hp");
-
+        return firstDamage;
     }
+        //System.out.println(attacker.getFIGHTER_NAME() + " makes " + firstDamage + " damage!" + defender.getFIGHTER_NAME() + " has " + defender.getHp() + " hp" );
 
-    public void secondAction(Fighter attacker, Fighter defender) {
+    public int secondAction(Fighter attacker, Fighter defender) {
         ActionTypes extraAction = rollActionType(null);// slumpar fram ATTACK eller SPECIAL, null eftersom metoden har parametrar
 
         if (extraAction == ActionTypes.ATTACK) {
             int extraDamage = attacker.actualAttackDamage(defender);
             defender.setHp(defender.getHp() - extraDamage);
-            System.out.println("second action" + attacker.getFIGHTER_NAME() + " makes " + extraDamage + " damage!"+ defender.getFIGHTER_NAME() + " has " + defender.getHp() + " hp");
-
+            battlePrinter.printAttack(attacker, defender, extraDamage);
+            return extraDamage;
 
         } else {
             fighterChecker(attacker, defender);
-
         }
+        return 0;
     }
-
 
     public ActionTypes rollActionType(ActionTypes actionType) {
         ActionTypes[] actionsArray = ActionTypes.values();
@@ -49,8 +48,6 @@ public class GameUtility {
         } else if (actionTypeRoll == ActionTypes.SPECIAL) {
             // kalla på specialmetoden från fighter
         }
-
-
     }
 
     public void fighterChecker(Fighter fighter, Fighter defender) {
@@ -75,8 +72,6 @@ public class GameUtility {
 
             default:
                 System.out.println("Unexpected output");
-
         }
-
     }
 }
