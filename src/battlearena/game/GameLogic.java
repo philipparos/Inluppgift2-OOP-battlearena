@@ -48,8 +48,14 @@ public class GameLogic {
 
                 gameUtility.secondAction(player2, player1);
 
-
             }
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+
             isPlayerTurn = !isPlayerTurn;
         }
     }
