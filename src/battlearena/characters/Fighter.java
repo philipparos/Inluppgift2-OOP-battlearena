@@ -41,4 +41,9 @@ public abstract class Fighter implements ActionType {
         int MIN_HP = 0;
         return currentHp > MIN_HP;
     }
+
+    public void resetHp() {
+        currentHp = maxHp;
+    }
+
 }
