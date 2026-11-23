@@ -45,5 +45,16 @@ public abstract class Fighter implements ActionType {
     public void resetHp() {
         currentHp = maxHp;
     }
+    public int takeDamage(int damage) {
+        int damageAfterDefense = adjustIncomingDamage(damage);
+        int actualDamage = Math.min(damageAfterDefense, currentHp);
+        currentHp -= actualDamage;
+        return actualDamage;
+    }
 
+    protected int adjustIncomingDamage(int damage) {
+        return damage; // Vanliga fighters tar full skada
+    }
 }
+
+

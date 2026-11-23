@@ -28,6 +28,7 @@ public class Mage extends Fighter {
 
     public int heal() {
         int healAmount = specialActionRoll();
+        System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
         return Math.min(healAmount, getMaxHp() - getHp());
     }
 
