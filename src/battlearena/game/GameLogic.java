@@ -1,8 +1,6 @@
 package battlearena.game;
 import battlearena.characters.Fighter;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class GameLogic {
@@ -20,7 +18,7 @@ public class GameLogic {
         player2.resetHp();
 
         int firstDamage;
-        int extraDamage;
+        //int extraDamage;
 
         while (player1.isAlive() && player2.isAlive()) { // så länge båda lever körs battle
             if (isPlayerTurn) { //true
@@ -28,16 +26,16 @@ public class GameLogic {
                 firstDamage = gameUtility.firstAttack(player1, player2);
 
                 if (!player2.isAlive()) {
-                    battlePrinter.printDeath(player1, player2);
+                    battlePrinter.printResults(player1, player2);
                     break;
                 } else {
                     battlePrinter.printAttack(player1, player2, firstDamage);
 
                 }
-                extraDamage = gameUtility.secondAction(player1, player2);
+                gameUtility.secondAction(player1, player2);
 
                 if (!player2.isAlive()) {
-                    battlePrinter.printDeath(player1, player2);
+                    battlePrinter.printResults(player1, player2);
                     break;
                 } else {
                  //   second action - behöver metod
@@ -50,16 +48,16 @@ public class GameLogic {
                 firstDamage = gameUtility.firstAttack(player2, player1);
 
                 if (!player1.isAlive()) {
-                    battlePrinter.printDeath(player2, player1);
+                    battlePrinter.printResults(player2, player1);
                     break;
                 } else {
                     battlePrinter.printAttack(player2, player1, firstDamage);
                 }
 
-                extraDamage = gameUtility.secondAction(player2, player1);
+                gameUtility.secondAction(player2, player1);
 
                 if (!player1.isAlive()) {
-                    battlePrinter.printDeath(player2, player1);
+                    battlePrinter.printResults(player2, player1);
                     break;
                 } else {
              // second action - behöver metod
