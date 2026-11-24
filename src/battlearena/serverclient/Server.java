@@ -10,7 +10,6 @@ public class Server {
     public static void main(String[] args) {
 
         Path file = Path.of("matchResults.txt");
-        //StandardOpenOption.APPEND
 
         try (ServerSocket serverSocket = new ServerSocket(5000)) {
 
@@ -23,7 +22,6 @@ public class Server {
                     System.out.println("En klient anslöt!");
 
                     BufferedReader inputReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
                     PrintWriter outputWriter = new PrintWriter(socket.getOutputStream(), true);
 
                     String message;
@@ -40,9 +38,6 @@ public class Server {
                                 message + "\n",
                                 StandardOpenOption.APPEND
                         );
-
-
-
 
                         System.out.println("Sparade meddelandet " + message);
                         outputWriter.println("Sparat");

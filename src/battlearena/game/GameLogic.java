@@ -63,6 +63,9 @@ public class GameLogic {
              // second action - behöver metod
                 }
             }
+
+            battlePrinter.printResultClient(player1, player2);
+
                     try {
                         Thread.sleep(3000);
                     } catch (InterruptedException e) {

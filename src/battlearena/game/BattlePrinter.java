@@ -15,24 +15,43 @@ public class BattlePrinter {
     public void printSpecialAction(Fighter attacker, Fighter defender, int specialAmount) {
         switch (attacker) {
             case Warrior warrior:
-                System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
+              //  System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
                 System.out.println("nånting annar");
                 break;
 
             case Mage mage:
-                System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
+          //      System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
                 System.out.println(" sno från fighgerchecker");
                 break;
 
             case Hunter hunter:
-                System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
+            //    System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
                 System.out.println(" sno från fighgerchecker");
                 break;
 
                 default:
                     System.out.println("Unexpected output");
         }
+    }
 
+    public String printResultClient(Player human, CPUPlayer CPU) { // heta printResult bara, döpa om printResult till matchConclusion
+        String result;
+        int round = 0;
+        int CpuWinCounter = 0;
+        int PlayerWinCounter = 0;
+        String winAnnouncer;
+        while (true) {
+            round++;
+            if (human.getFighter().getHp() == 0) {
+                winAnnouncer = CPU.getName();
+                CpuWinCounter++;
+                break;
+            } else {
+                winAnnouncer = human.getName();
+                PlayerWinCounter++;
+                break;
+            }
+        } return "Round" + round + "\n" + human + "\n" + CPU + "\n" + winAnnouncer + "won!";
     }
 
     public void printMageSpecial (){

@@ -16,13 +16,12 @@ public class Client {
             PrintWriter outputWriter = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-
             System.out.println("Ansluten till servern");
-            System.out.println("Skriv ett text som ska sparas");
+            System.out.println("Skriv en text som ska sparas");
             System.out.println("Skriv quit för att avsluta");
 
             while (true) {
-                System.out.println("Meddelande: ... ");
+                System.out.println("Meddelande: ");
                 String message = scanner.nextLine();
 
                 outputWriter.println(message);
@@ -39,7 +38,6 @@ public class Client {
                     break;
                 }
             }
-
         } catch (IOException e){
             System.out.println("Anslutningsfel " + e.getMessage());
         }
