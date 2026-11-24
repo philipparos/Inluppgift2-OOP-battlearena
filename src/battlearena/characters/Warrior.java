@@ -38,7 +38,6 @@ public class Warrior extends Fighter {
 
     public void useSpecialAction() {
         setDefendPercentage(specialActionRoll());
-        System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
     }
 
     public int getDefendPercentage() {

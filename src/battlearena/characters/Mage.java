@@ -23,17 +23,14 @@ public class Mage extends Fighter {
     @Override
     public int actualAttackDamage(Fighter defender) {
         return Math.min(attackDamageRoll(), defender.getHp());
-
     }
 
     public int heal() {
         int healAmount = specialActionRoll();
-        System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
         return Math.min(healAmount, getMaxHp() - getHp());
     }
 
     public int getMaxHp() {
         return MAX_HP;
     }
-
 }

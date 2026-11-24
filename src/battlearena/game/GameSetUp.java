@@ -27,7 +27,6 @@ public class GameSetUp {
         setChosenPlayerFighter(chosenPlayerFighter);
 
         return new Player(name, chosenPlayerFighter);
-
     }
 
 
@@ -46,7 +45,5 @@ public class GameSetUp {
 
 
     }
-
- //System.out.println(player.getName() + " picked " + player.getFighter().getFIGHTER_NAME());
 }
 
