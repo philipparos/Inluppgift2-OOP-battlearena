@@ -20,7 +20,7 @@ public class GameUtility {
 
 
     }
-        //System.out.println(attacker.getFIGHTER_NAME() + " makes " + firstDamage + " damage!" + defender.getFIGHTER_NAME() + " has " + defender.getHp() + " hp" );
+    //System.out.println(attacker.getFIGHTER_NAME() + " makes " + firstDamage + " damage!" + defender.getFIGHTER_NAME() + " has " + defender.getHp() + " hp" );
 
     public void secondAction(Fighter attacker, Fighter defender) {
         ActionTypes extraAction = rollActionType(null);// slumpar fram ATTACK eller SPECIAL, null eftersom metoden har parametrar
@@ -55,19 +55,19 @@ public class GameUtility {
         switch (fighter) {
             case Warrior warrior:
                 warrior.useSpecialAction();
-                System.out.println("spec" + fighter.getFIGHTER_NAME() + " blocks " + warrior.getDefendPercentage() + " % incoming damage! " + fighter.getFIGHTER_NAME() +  " has " +  fighter.getHp() + "hp");
+                battlePrinter.printSpecialAction(fighter, defender, warrior.getDefendPercentage());
                 break;
 
             case Mage mage:
-                specialAbility =  mage.heal();
+                specialAbility = mage.heal();
                 mage.setHp(mage.getHp() + specialAbility);
-                System.out.println("spec" + fighter.getFIGHTER_NAME() + " heals " + specialAbility + " HP! " + fighter.getFIGHTER_NAME() +  " has " +  fighter.getHp() + "hp");
+                battlePrinter.printSpecialAction(fighter, defender, specialAbility);
                 break;
 
             case Hunter hunter:
                 specialAbility = hunter.actualSpecialDamage(defender);
                 defender.setHp(defender.getHp() - specialAbility);
-                System.out.println("spec" + fighter.getFIGHTER_NAME() + " makes " + specialAbility + " damage! " + defender.getFIGHTER_NAME() + " has " + defender.getHp() + "hp");
+                battlePrinter.printSpecialAction(fighter, defender, specialAbility);
                 break;
 
             default:

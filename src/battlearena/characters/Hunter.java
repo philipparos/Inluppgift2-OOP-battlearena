@@ -25,7 +25,6 @@ public class Hunter extends Fighter {
     }
 
     public int actualSpecialDamage(Fighter defender) {
-        System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
         return Math.min(specialActionRoll(), defender.getHp());
     }
 }
