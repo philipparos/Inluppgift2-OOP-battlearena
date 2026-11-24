@@ -8,43 +8,68 @@ import battlearena.characters.Warrior;
 public class BattlePrinter {
 
 
-    public void printAttack (Fighter attacker, Fighter defender, int firstDamage) {
-        System.out.println( "BATTLE PRINTER !!!! " + attacker.getFIGHTER_NAME() + " makes " + firstDamage + " damage!" + defender.getFIGHTER_NAME() + " has " + defender.getHp() + " hp");
+    public void printAttack(Fighter attacker, Fighter defender, int firstDamage) {
+        System.out.println(
+                attacker.getFIGHTER_NAME()
+                        + " makes "
+                        + firstDamage
+                        + " damage! "
+                        + defender.getFIGHTER_NAME()
+                        + " has "
+                        + defender.getHp()
+                        + " hp");
     }
 
-    public void printSpecialAction(Fighter attacker, Fighter defender, int specialAmount) {
+    public void printSpecialAction(Fighter attacker, Fighter defender, int specialAbility) {
+        System.out.println(attacker.getSPECIAL_ATTACK_NAME() + " has been used! ");
+
         switch (attacker) {
             case Warrior warrior:
-                System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
-                System.out.println("nånting annar");
+                System.out.println(
+                        warrior.getFIGHTER_NAME()
+                                + " blocks "
+                                + warrior.getDefendPercentage()
+                                + " % incoming damage! "
+                                + warrior.getFIGHTER_NAME()
+                                + " has "
+                                + warrior.getHp()
+                                + "hp");
                 break;
 
             case Mage mage:
-                System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
-                System.out.println(" sno från fighgerchecker");
+                if (specialAbility == 0) {
+                    System.out.println(
+                            mage.getFIGHTER_NAME()
+                                    + " tried to heal but is already at full health!");
+                } else {
+                    System.out.println(
+                            mage.getFIGHTER_NAME()
+                                    + " heals "
+                                    + specialAbility
+                                    + " hp! "
+                                    + mage.getFIGHTER_NAME()
+                                    + " has "
+                                    + mage.getHp()
+                                    + " hp");
+                }
                 break;
 
             case Hunter hunter:
-                System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
-                System.out.println(" sno från fighgerchecker");
+                System.out.println(
+                        hunter.getFIGHTER_NAME()
+                                + " makes "
+                                + specialAbility
+                                + " damage! "
+                                + defender.getFIGHTER_NAME()
+                                + " has "
+                                + defender.getHp()
+                                + "hp");
                 break;
 
-                default:
-                    System.out.println("Unexpected output");
+            default:
+                System.out.println("Unexpected output");
         }
 
-    }
-
-    public void printMageSpecial (){
-        //System.out.println(getSPECIAL_ATTACK_NAME() + " has been used!");
-        System.out.println();
-    }
-
-    public void printHunterSpecial(){
-        System.out.println();
-    }
-    public void printWarriorSpecial(){
-        System.out.println();
     }
 
     public void printResults(Fighter winner, Fighter loser) {
