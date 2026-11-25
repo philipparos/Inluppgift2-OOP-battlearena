@@ -38,8 +38,7 @@ public class GameLogic {
             Fighter attacker = isPlayerTurn ? player1 : player2;
             Fighter defender = isPlayerTurn ? player2 : player1;
 
-            int actualDamage = gameUtility.firstAttack(attacker, defender);
-            battlePrinter.printAttack(attacker, defender, actualDamage);
+           gameUtility.firstAttack(attacker, defender);
 
             if (!defender.isAlive()) {
                 battlePrinter.printResults(attacker, defender);

@@ -39,11 +39,11 @@ public class BattlePrinter {
     }
 
     public void printSpecialAction(Fighter attacker, Fighter defender, int specialAbility) {
-        System.out.println(attacker.getSPECIAL_ATTACK_NAME() + " has been used! ");
+        System.out.println("\u001B[34m" + attacker.getSPECIAL_ATTACK_NAME() + " has been used!\u001B[0m");
 
         switch (attacker) {
             case Warrior warrior:
-                System.out.println(
+                System.out.println("\u001B[35m" +
                         warrior.getFIGHTER_NAME()
                                 + " blocks "
                                 + warrior.getDefendPercentage()
@@ -51,7 +51,7 @@ public class BattlePrinter {
                                 + warrior.getFIGHTER_NAME()
                                 + " has "
                                 + warrior.getHp()
-                                + "hp");
+                                + "hp\u001B[0m");
                 break;
 
             case Mage mage:
@@ -60,7 +60,7 @@ public class BattlePrinter {
                             mage.getFIGHTER_NAME()
                                     + " tried to heal but is already at full health!");
                 } else {
-                    System.out.println(
+                    System.out.println("\u001B[32m" +
                             mage.getFIGHTER_NAME()
                                     + " heals "
                                     + specialAbility
@@ -68,12 +68,12 @@ public class BattlePrinter {
                                     + mage.getFIGHTER_NAME()
                                     + " has "
                                     + mage.getHp()
-                                    + " hp");
+                                    + " hp\u001B[0m");
                 }
                 break;
 
             case Hunter hunter:
-                System.out.println(
+                System.out.println("\u001B[38;5;208m" +
                         hunter.getFIGHTER_NAME()
                                 + " makes "
                                 + specialAbility
@@ -81,7 +81,7 @@ public class BattlePrinter {
                                 + defender.getFIGHTER_NAME()
                                 + " has "
                                 + defender.getHp()
-                                + "hp");
+                                + "hp\u001B[0m");
                 break;
 
             default:
@@ -91,7 +91,9 @@ public class BattlePrinter {
     }
 
     public void printResults(Fighter winner, Fighter loser) {
-        System.out.println(loser.getFIGHTER_NAME() + " died!");
-        System.out.println(winner.getFIGHTER_NAME() + " wins!");
+        System.out.println("=================================");
+        System.out.println("\uD83D\uDC80 " + "\u001B[31m" + loser.getFIGHTER_NAME() + " died!\u001B[0m" + " \uD83D\uDC80" );
+        System.out.println("\uD83C\uDF89 " + "\u001B[33m" + winner.getFIGHTER_NAME() + " wins!\u001B[0m" + " \uD83C\uDF89");
+        System.out.println("=================================");
     }
 }

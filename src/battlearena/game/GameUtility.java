@@ -10,9 +10,10 @@ import java.util.Random;
 public class GameUtility {
     BattlePrinter battlePrinter = new BattlePrinter();
 
-    public int firstAttack(Fighter attacker, Fighter defender) {
+    public void firstAttack(Fighter attacker, Fighter defender) {
         int firstDamageRoll = attacker.attackDamageRoll();
-        return defender.takeDamage(firstDamageRoll);
+        defender.takeDamage(firstDamageRoll);
+        battlePrinter.printAttack(attacker, defender, firstDamageRoll);
     }
 
     public void secondAction(Fighter attacker, Fighter defender) {
