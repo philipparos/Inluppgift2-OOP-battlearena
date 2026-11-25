@@ -18,10 +18,10 @@ public class BattlePrinter {
                 + player.getFighter().getFIGHTER_NAME());
     }
 
-    public void printBattleStart(Player player, Player cpuPlayer, boolean isPlayerTurn) {
-        System.out.println(player.getName() + " starts with " + player.getFighter().getHp() + " hp");
-        System.out.println(cpuPlayer.getName() + " starts with " + cpuPlayer.getFighter().getHp() + " hp");
-        System.out.println((isPlayerTurn ? player.getName() : cpuPlayer.getName()) + " starts!");
+    public void printBattleStart(Fighter player, Fighter cpuPlayer, boolean isPlayerTurn) {
+        System.out.println(player.getFIGHTER_NAME() + " starts with " + player.getMaxHp() + " hp");
+        System.out.println(cpuPlayer.getFIGHTER_NAME() + " starts with " + cpuPlayer.getMaxHp() + " hp");
+        System.out.println((isPlayerTurn ? player.getFIGHTER_NAME() : cpuPlayer.getFIGHTER_NAME()) + " starts!");
         System.out.println("************************************");
     }
 

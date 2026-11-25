@@ -15,14 +15,15 @@ public class GameUtility {
         return defender.takeDamage(firstDamageRoll);
     }
 
-    public int secondAction(Fighter attacker, Fighter defender) {
+    public void secondAction(Fighter attacker, Fighter defender) {
         ActionTypes extraAction = rollActionType(null);// slumpar fram ATTACK eller SPECIAL, null eftersom metoden har parametrar
 
         if (extraAction == ActionTypes.ATTACK) {
             int extraDamageRoll = attacker.attackDamageRoll();
-            return defender.takeDamage(extraDamageRoll);
+            defender.takeDamage(extraDamageRoll);
+            battlePrinter.printAttack(attacker, defender, extraDamageRoll);
         } else {
-            return fighterChecker(attacker, defender);
+            fighterChecker(attacker, defender);
         }
     }
 
@@ -32,36 +33,35 @@ public class GameUtility {
         return actionsArray[randomObject.nextInt(actionsArray.length)];
     }
 
-    public void actionTypeRollChecker(ActionTypes actionTypeRoll, Fighter fighter) {
-        if (actionTypeRoll == ActionTypes.ATTACK) {
-            fighter.attackDamageRoll();//kalla på attackmetoden från fighter
-        } else if (actionTypeRoll == ActionTypes.SPECIAL) {
-        }
-    }
+//    public void actionTypeRollChecker(ActionTypes actionTypeRoll, Fighter fighter) {
+//        if (actionTypeRoll == ActionTypes.ATTACK) {
+//            fighter.attackDamageRoll();//kalla på attackmetoden från fighter
+//        } else if (actionTypeRoll == ActionTypes.SPECIAL) {
+//        }
+//    }
 
-    public int fighterChecker(Fighter fighter, Fighter defender) {
+    public void fighterChecker(Fighter fighter, Fighter defender) {
         int specialAbility = 0;
         switch (fighter) {
             case Warrior warrior:
                 warrior.useSpecialAction();
                 battlePrinter.printSpecialAction(fighter, defender, warrior.getDefendPercentage());
-                return warrior.getDefendPercentage();
+                break;
 
             case Mage mage:
                 specialAbility = mage.heal();
                 mage.setHp(mage.getHp() + specialAbility);
                 battlePrinter.printSpecialAction(fighter, defender, specialAbility);
-                return specialAbility;
+                break;
 
             case Hunter hunter:
                 specialAbility = hunter.actualSpecialDamage(defender);
-                defender.takeDamage(defender.getHp() - specialAbility);
+                defender.takeDamage(specialAbility);
                 battlePrinter.printSpecialAction(fighter, defender, specialAbility);
-                return specialAbility;
+                break;
 
             default:
                 System.out.println("Unexpected output");
         }
-        return specialAbility;
     }
 }

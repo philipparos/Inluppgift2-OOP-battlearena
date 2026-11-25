@@ -32,7 +32,7 @@ public class GameLogic {
         player2.resetHp();
 
 
-        //battlePrinter.printBattleStart(player1, player2, isPlayerTurn);
+        battlePrinter.printBattleStart(player1, player2, isPlayerTurn);
         while (player1.isAlive() && player2.isAlive()) {
 
             Fighter attacker = isPlayerTurn ? player1 : player2;
@@ -46,8 +46,7 @@ public class GameLogic {
                 break;
             }
 
-            int specialActionAmount = gameUtility.secondAction(attacker, defender);
-            battlePrinter.printAttack(attacker, defender, specialActionAmount);
+            gameUtility.secondAction(attacker, defender);
 
             if (!defender.isAlive()) {
                 battlePrinter.printResults(attacker, defender);
