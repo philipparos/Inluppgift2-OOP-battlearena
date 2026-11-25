@@ -11,6 +11,8 @@ public class Client {
 
     public static void main(String[] args) {
 
+
+
         try (Socket socket = new Socket("localhost", 5000)) {
             Scanner scanner = new Scanner(System.in);
             PrintWriter outputWriter = new PrintWriter(socket.getOutputStream(), true);
@@ -40,6 +42,22 @@ public class Client {
             }
         } catch (IOException e){
             System.out.println("Anslutningsfel " + e.getMessage());
+        }
+    }
+    public static void sendResult(String message) {
+        try (Socket socket = new Socket("localhost", 5000);
+             PrintWriter outputWriter = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader inputReader = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            outputWriter.println(message);
+            String response = inputReader.readLine();
+
+            if (response != null) {
+                System.out.println("Server: " + response);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Anslutningsfel: " + e.getMessage());
         }
     }
 }

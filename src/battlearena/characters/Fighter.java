@@ -55,6 +55,11 @@ public abstract class Fighter implements ActionType {
     protected int adjustIncomingDamage(int damage) {
         return damage; // Vanliga fighters tar full skada
     }
+
+    @Override
+    public String toString() {
+        return getFIGHTER_NAME();
+    }
 }
 
 

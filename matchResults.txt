@@ -46,3 +46,11 @@ Computer wins: 1 out of 4 times
 hejråttahej hoppjag är bästsnälla låt det funka
 snälla funka
 helloooooo 
+0test
+10test
+battlearena.characters.Mage@5fd0d5ae
+battlearena.characters.Hunter@2d98a335
+Warrior
+Hunter
+Warrior
+Mage

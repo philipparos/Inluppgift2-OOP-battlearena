@@ -1,5 +1,6 @@
 package battlearena.game;
 import battlearena.characters.Fighter;
+import battlearena.serverclient.Client;
 
 import java.util.Random;
 
@@ -64,18 +65,22 @@ public class GameLogic {
                 }
             }
 
-            battlePrinter.printResultClient(player1, player2);
+           // battlePrinter.printResultClient(player1, player2);
+
 
                     try {
-                        Thread.sleep(3000);
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         System.out.println(e);
                     }
 
                     isPlayerTurn = !isPlayerTurn;
-                }
+
+              }
+                String result = player1 + "\n" + player2;
+                Client.sendResult(result);
             }
-        }
+          }
 
 
 

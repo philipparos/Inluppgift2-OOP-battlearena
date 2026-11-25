@@ -31,4 +31,10 @@ public class Player {
     public Fighter getFighter() {
         return fighter;
     }
+
+    @Override
+    public String toString(){
+        return getName() + " picked " + getFighter();
+    }
+
 }
