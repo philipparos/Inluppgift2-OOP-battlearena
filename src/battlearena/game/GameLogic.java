@@ -1,79 +1,66 @@
 package battlearena.game;
+
 import battlearena.characters.Fighter;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class GameLogic {
     private GameUtility gameUtility = new GameUtility();
     private final Random randomObject = new Random();
     private BattlePrinter battlePrinter = new BattlePrinter();
-    //private List<Fighter> characters = new ArrayList<>();
-//    Fighter player;
-//    Fighter cpu;
+    private GameSetUp gameSetUp = new GameSetUp();
+    ListHandler listHandler = new ListHandler();
+    InputHandler inputHandler = new InputHandler(new Scanner(System.in));
+
+    public void startGameLoop() {
+        BattlePrinter.welcomeMessage();
+        boolean playAgain = true;
+        while(playAgain){
+            Player humanPlayer = gameSetUp.createHumanPlayer(inputHandler, listHandler);
+            CPUPlayer cpuPlayer = gameSetUp.createCPUPlayer(listHandler);
+            battlePrinter.printFighterChoice(humanPlayer);
+            battlePrinter.printFighterChoice(cpuPlayer);
+            startBattle(humanPlayer.getFighter(), cpuPlayer.getFighter());
+            playAgain = inputHandler.askToPlayAgain();
+        }
+    }
 
     public void startBattle(Fighter player1, Fighter player2) {
-        boolean isPlayerTurn = randomObject.nextBoolean();// slumpar vem som börjar, vid true börjar spelaren
-
+        boolean isPlayerTurn = randomObject.nextBoolean();
         player1.resetHp();
         player2.resetHp();
 
-        int firstDamage;
-        //int extraDamage;
 
-        while (player1.isAlive() && player2.isAlive()) { // så länge båda lever körs battle
-            if (isPlayerTurn) { //true
+        //battlePrinter.printBattleStart(player1, player2, isPlayerTurn);
+        while (player1.isAlive() && player2.isAlive()) {
 
-                firstDamage = gameUtility.firstAttack(player1, player2);
+            Fighter attacker = isPlayerTurn ? player1 : player2;
+            Fighter defender = isPlayerTurn ? player2 : player1;
 
-                if (!player2.isAlive()) {
-                    battlePrinter.printResults(player1, player2);
-                    break;
-                } else {
-                    battlePrinter.printAttack(player1, player2, firstDamage);
+            int actualDamage = gameUtility.firstAttack(attacker, defender);
+            battlePrinter.printAttack(attacker, defender, actualDamage);
 
-                }
-                gameUtility.secondAction(player1, player2);
-
-                if (!player2.isAlive()) {
-                    battlePrinter.printResults(player1, player2);
-                    break;
-                } else {
-                 //   second action - behöver metod
-                }
-//
-
-
-                // datorns tur
-            } else {
-                firstDamage = gameUtility.firstAttack(player2, player1);
-
-                if (!player1.isAlive()) {
-                    battlePrinter.printResults(player2, player1);
-                    break;
-                } else {
-                    battlePrinter.printAttack(player2, player1, firstDamage);
-                }
-
-                gameUtility.secondAction(player2, player1);
-
-                if (!player1.isAlive()) {
-                    battlePrinter.printResults(player2, player1);
-                    break;
-                } else {
-             // second action - behöver metod
-                }
+            if (!defender.isAlive()) {
+                battlePrinter.printResults(attacker, defender);
+                break;
             }
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException e) {
-                        System.out.println(e);
-                    }
 
-                    isPlayerTurn = !isPlayerTurn;
-                }
+            int specialActionAmount = gameUtility.secondAction(attacker, defender);
+            battlePrinter.printAttack(attacker, defender, specialActionAmount);
+
+            if (!defender.isAlive()) {
+                battlePrinter.printResults(attacker, defender);
+                break;
             }
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+
+            isPlayerTurn = !isPlayerTurn;
         }
-
-
-
-
+    }
+}

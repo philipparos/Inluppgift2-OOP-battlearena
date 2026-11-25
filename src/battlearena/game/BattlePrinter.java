@@ -7,10 +7,28 @@ import battlearena.characters.Warrior;
 
 public class BattlePrinter {
 
+    public static void welcomeMessage() {
+        System.out.println("\u001B[34m=================================");
+        System.out.println("Welcome to the Battle Arena game");
+        System.out.println("=================================\u001B[0m");
+    }
+    public void printFighterChoice(Player player){
+        System.out.println(player.getName()
+                + " picked "
+                + player.getFighter().getFIGHTER_NAME());
+    }
+
+    public void printBattleStart(Player player, Player cpuPlayer, boolean isPlayerTurn) {
+        System.out.println(player.getName() + " starts with " + player.getFighter().getHp() + " hp");
+        System.out.println(cpuPlayer.getName() + " starts with " + cpuPlayer.getFighter().getHp() + " hp");
+        System.out.println((isPlayerTurn ? player.getName() : cpuPlayer.getName()) + " starts!");
+        System.out.println("************************************");
+    }
+
 
     public void printAttack(Fighter attacker, Fighter defender, int firstDamage) {
         System.out.println(
-                attacker.getFIGHTER_NAME()
+                        attacker.getFIGHTER_NAME()
                         + " makes "
                         + firstDamage
                         + " damage! "
