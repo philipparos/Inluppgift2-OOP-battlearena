@@ -20,7 +20,7 @@ public class GameUtility {
 
         if (extraAction == ActionTypes.ATTACK) {
             int extraDamageRoll = attacker.attackDamageRoll();
-            return defender.takeDamage(defender.getHp() - extraDamageRoll);
+            return defender.takeDamage(extraDamageRoll);
         } else {
             return fighterChecker(attacker, defender);
         }
