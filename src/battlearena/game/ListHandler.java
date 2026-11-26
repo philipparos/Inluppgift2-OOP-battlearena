@@ -18,10 +18,6 @@ public class ListHandler {
         return new ArrayList<Fighter>(fighters);
     }
 
-    public static Fighter getFighterByIndex(int i) {
-        return fighters.get(i);
-    }
-
 
     public List<Fighter> getFighters() {
         return fighters;

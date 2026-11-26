@@ -34,13 +34,6 @@ public class GameUtility {
         return actionsArray[randomObject.nextInt(actionsArray.length)];
     }
 
-//    public void actionTypeRollChecker(ActionTypes actionTypeRoll, Fighter fighter) {
-//        if (actionTypeRoll == ActionTypes.ATTACK) {
-//            fighter.attackDamageRoll();//kalla på attackmetoden från fighter
-//        } else if (actionTypeRoll == ActionTypes.SPECIAL) {
-//        }
-//    }
-
     public void fighterChecker(Fighter fighter, Fighter defender) {
         int specialAbility = 0;
         switch (fighter) {
