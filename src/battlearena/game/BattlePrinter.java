@@ -89,26 +89,12 @@ public class BattlePrinter {
         }
     }
 
-    public String printResultClient(Player human, CPUPlayer CPU) { // heta printResult bara, döpa om printResult till matchConclusion
-//        int round = 0;
-//        int CpuWinCounter = 0;
-//        int PlayerWinCounter = 0;
-        String winAnnouncer;
-        while (true) {
-//            round++;
-            if (human.getFighter().getHp() == 0) {
-                winAnnouncer = CPU.getName();
-//                CpuWinCounter++;
-                break;
-            } else {
-                winAnnouncer = human.getName();
-//                PlayerWinCounter++;
-                break;
-            }
-        } return "Round" + "\n" + human + "\n" + CPU + "\n" + winAnnouncer + "won!\n Player win counter " +  "\n Computer win counter ";
+    public String resultClient(Player human, CPUPlayer CPU) {
+
+        return human + "\n" + CPU;
     }
 
-    public void printResults(Fighter winner, Fighter loser) {
+    public void matchConclusion(Fighter winner, Fighter loser) {
         System.out.println("=================================");
         System.out.println("\uD83D\uDC80 " + "\u001B[31m" + loser.getFIGHTER_NAME() + " died!\u001B[0m" + " \uD83D\uDC80" );
         System.out.println("\uD83C\uDF89 " + "\u001B[33m" + winner.getFIGHTER_NAME() + " wins!\u001B[0m" + " \uD83C\uDF89");

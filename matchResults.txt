@@ -54,3 +54,31 @@ Warrior
 Hunter
 Warrior
 Mage
+Testkörning
+
+"Moa picked Hunter"
+"Computer picked Mage"
+Moa picked Mage
+Computer picked Hunter
+Moa picked Warrior
+Computer picked Mage
+moa picked Mage
+Computer picked Hunter
+moa picked Hunter
+Computer picked Mage
+Moa picked Mage
+Computer picked Hunter
+Bajsapa picked Warrior
+Computer picked Hunter
+Moa picked Warrior
+Computer picked Hunter
+Moa picked Mage
+Computer picked Hunter
+moa picked Mage
+Computer picked Hunter
+Moa picked Hunter
+Computer picked Mage
+moa picked Hunter
+Computer picked Mage
+Moa picked Mage
+Computer picked Hunter

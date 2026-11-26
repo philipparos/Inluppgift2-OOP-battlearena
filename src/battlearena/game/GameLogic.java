@@ -1,6 +1,7 @@
 package battlearena.game;
 
 import battlearena.characters.Fighter;
+import battlearena.serverclient.Client;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -15,14 +16,16 @@ public class GameLogic {
 
     public void startGameLoop() {
         BattlePrinter.welcomeMessage();
-        boolean playAgain = true;
-        while(playAgain){
+        boolean running = true;
+        while(running){
             Player humanPlayer = gameSetUp.createHumanPlayer(inputHandler, listHandler);
             CPUPlayer cpuPlayer = gameSetUp.createCPUPlayer(listHandler);
             battlePrinter.printFighterChoice(humanPlayer);
             battlePrinter.printFighterChoice(cpuPlayer);
             startBattle(humanPlayer.getFighter(), cpuPlayer.getFighter());
-            playAgain = inputHandler.askToPlayAgain();
+            String result = battlePrinter.resultClient(humanPlayer, cpuPlayer);
+            Client.sendResult(result);
+            running = inputHandler.menu();
         }
     }
 
@@ -41,19 +44,19 @@ public class GameLogic {
            gameUtility.firstAttack(attacker, defender);
 
             if (!defender.isAlive()) {
-                battlePrinter.printResults(attacker, defender);
+                battlePrinter.matchConclusion(attacker, defender);
                 break;
             }
 
             gameUtility.secondAction(attacker, defender);
 
             if (!defender.isAlive()) {
-                battlePrinter.printResults(attacker, defender);
+                battlePrinter.matchConclusion(attacker, defender);
                 break;
             }
 
             try {
-                Thread.sleep(3000);
+                Thread.sleep(1500);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }

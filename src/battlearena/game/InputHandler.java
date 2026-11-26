@@ -4,12 +4,14 @@ import battlearena.characters.Fighter;
 import battlearena.characters.Hunter;
 import battlearena.characters.Mage;
 import battlearena.characters.Warrior;
+import battlearena.serverclient.FileHandler;
 
 import java.util.Scanner;
 
 public class InputHandler {
     private final Scanner scanner;
     String menuNumberInput;
+    FileHandler fileHandler = new FileHandler();
 
     public InputHandler(Scanner scanner) {
         this.scanner = scanner;
@@ -37,17 +39,39 @@ public class InputHandler {
         }
     }
 
-    public boolean askToPlayAgain() {
-        while(true) {
-            System.out.println("Play again? (y/n)");
-            String answer = scanner.nextLine().trim();
-            if (answer.equalsIgnoreCase("y")) {
-                return true;
+//    public boolean askToPlayAgain() {
+//        while(true) {
+//            System.out.println("Play again? (y/n)");
+//            String answer = scanner.nextLine().trim();
+//            if (answer.equalsIgnoreCase("y")) {
+//                return true;
+//            }
+//            if (answer.equalsIgnoreCase("n")) {
+//                return false;
+//            }
+//            System.out.println("Invalid input");
+//        }
+//    }
+
+    public boolean menu(){
+        while (true) {
+            System.out.println("1. Play again?");
+            System.out.println("2. Show match results");
+            System.out.println("3. Quit?");
+            String choice = scanner.nextLine().trim();
+            switch (choice){
+                case "1":
+                    return true;
+                case "2":
+                    fileHandler.file();
+                    return false;
+                case "3":
+                    System.out.println("Bye!");
+                    scanner.close();
+                    return false;
+                default:
+                    System.out.println("Invalid input, please try again");
             }
-            if (answer.equalsIgnoreCase("n")) {
-                return false;
-            }
-            System.out.println("Invalid input");
         }
     }
 }

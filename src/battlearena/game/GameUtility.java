@@ -12,17 +12,15 @@ public class GameUtility {
 
     public void firstAttack(Fighter attacker, Fighter defender) {
         int firstDamageRoll = attacker.attackDamageRoll();
-        defender.takeDamage(firstDamageRoll);
-        battlePrinter.printAttack(attacker, defender, firstDamageRoll);
+        int actualDamage = defender.takeDamage(firstDamageRoll);
+        battlePrinter.printAttack(attacker, defender, actualDamage);
     }
 
     public void secondAction(Fighter attacker, Fighter defender) {
-        ActionTypes extraAction = rollActionType(null);// slumpar fram ATTACK eller SPECIAL, null eftersom metoden har parametrar
+        ActionTypes extraAction = rollActionType(null);
 
         if (extraAction == ActionTypes.ATTACK) {
-            int extraDamageRoll = attacker.attackDamageRoll();
-            defender.takeDamage(extraDamageRoll);
-            battlePrinter.printAttack(attacker, defender, extraDamageRoll);
+            firstAttack(attacker, defender);
         } else {
             fighterChecker(attacker, defender);
         }
