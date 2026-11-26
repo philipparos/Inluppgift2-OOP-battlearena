@@ -87,7 +87,25 @@ public class BattlePrinter {
             default:
                 System.out.println("Unexpected output");
         }
+    }
 
+    public String printResultClient(Player human, CPUPlayer CPU) { // heta printResult bara, döpa om printResult till matchConclusion
+//        int round = 0;
+//        int CpuWinCounter = 0;
+//        int PlayerWinCounter = 0;
+        String winAnnouncer;
+        while (true) {
+//            round++;
+            if (human.getFighter().getHp() == 0) {
+                winAnnouncer = CPU.getName();
+//                CpuWinCounter++;
+                break;
+            } else {
+                winAnnouncer = human.getName();
+//                PlayerWinCounter++;
+                break;
+            }
+        } return "Round" + "\n" + human + "\n" + CPU + "\n" + winAnnouncer + "won!\n Player win counter " +  "\n Computer win counter ";
     }
 
     public void printResults(Fighter winner, Fighter loser) {
