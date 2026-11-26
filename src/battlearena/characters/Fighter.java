@@ -45,6 +45,7 @@ public abstract class Fighter implements ActionType {
     public void resetHp() {
         currentHp = maxHp;
     }
+
     public int takeDamage(int damage) {
         int damageAfterDefense = adjustIncomingDamage(damage);
         int actualDamage = Math.min(damageAfterDefense, currentHp);

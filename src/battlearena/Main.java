@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        InputHandler inputHandler = new InputHandler(new Scanner(System.in));
         GameLogic gameLogic = new GameLogic();
         ListHandler listHandler = new ListHandler();
         GameSetUp gameSetUp = new GameSetUp();

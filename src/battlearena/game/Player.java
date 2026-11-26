@@ -1,13 +1,10 @@
 package battlearena.game;
 
 import battlearena.characters.Fighter;
-import battlearena.characters.Warrior;
 
 public class Player {
     private String name;
     private Fighter fighter;
-
-    // Fighterchoice
 
 
     public Player() {
@@ -18,15 +15,9 @@ public class Player {
         this.fighter = fighter;
     }
 
-
-    public Player createPlayer(String name, Fighter fighter){
-        return new Player(name, fighter);
-    }
-
     public String getName() {
         return name;
     }
-
 
     public Fighter getFighter() {
         return fighter;
