@@ -4,22 +4,12 @@ import battlearena.characters.Fighter;
 
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
 
 public class GameSetUp {
 
-    Player player;
-    CPUPlayer CPUPlayer;
-    ListHandler listHandler = new ListHandler();
-    InputHandler inputHandler = new InputHandler(new Scanner(System.in));
-
     private Fighter chosenPlayerFighter;
 
-
-    public ListHandler getListHandler() {
-        return listHandler;
-    }
 
     public Player createHumanPlayer(InputHandler inputHandler, ListHandler listHandler) {
         String name = inputHandler.askForName();

@@ -1,7 +1,6 @@
 package battlearena.game;
 
 import battlearena.characters.Fighter;
-import battlearena.serverclient.Client;
 
 import java.util.Random;
 import java.util.Scanner;

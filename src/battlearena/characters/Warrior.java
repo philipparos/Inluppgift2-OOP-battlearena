@@ -32,7 +32,7 @@ public class Warrior extends Fighter {
         }
 
         int reducedDamage = damage * (100 - defendPercentage) / 100;
-        defendPercentage = 0; // försvaret gäller en träff
+        defendPercentage = 0;
         return reducedDamage;
     }
 

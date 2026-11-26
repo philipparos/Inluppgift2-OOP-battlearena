@@ -27,7 +27,7 @@ public class InputHandler {
     }
 
     public int menuNumberChoice() {
-        System.out.println("Pick a fighter: ");// behöver skriva ut listan
+        System.out.println("Pick a fighter: ");
         while (true) {
             menuNumberInput = scanner.nextLine().trim();
             if (menuNumberInput.matches("[1-3]")) {
