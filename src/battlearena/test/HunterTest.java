@@ -19,50 +19,26 @@ public class HunterTest {
 
     @Test
     void hunterAttackDamageShouldDamageMage(){
-        int hunterAttack = hunter.attackDamageRoll();
         int hpBeforeAttack = mage.getHp();
+        int hunterAttackDamage = hunter.attackDamageRoll();
 
         //Act
-        int hpAfterAttack = mage.getHp();
-        int damage = hpBeforeAttack - hpAfterAttack;
+        int actualDamage = mage.takeDamage(hunterAttackDamage);
 
         //Assert
-//        assertTrue(hpBeforeAttack > hpAfterAttack);
-        assertFalse(hpBeforeAttack > hpAfterAttack);
+        assertEquals(hpBeforeAttack - actualDamage, mage.getHp());
     }
 
     @Test
-    void hunterAttackShouldDamageBetween5and15(){
-        //Arrange
-        int hpBeforeAttack = mage.getHp();
+    void hunterAttackShouldDamageBetween5and15() {
+        int damage = hunter.attackDamageRoll();
 
-        //Act
-        int hunterAttackDamage = hunter.attackDamageRoll();
-        int hpAfterAttack = hpBeforeAttack - hunterAttackDamage;
-        int damage = hpBeforeAttack - hpAfterAttack;
 
-        //Assert
         assertTrue(damage >= 5);
         assertTrue(damage <= 15);
-
-
-//        assertTrue(
-//                damage == 0 || (damage >= 5 && damage <= 15)
-//        );
     }
 
-//    @Test
-//    void attackDamageXXXXXShouldDecreaseHp(){
-//        //Arrange
-//        int hpBeforeAttack = mage.getHp();
-//
-//        //Act
-//        int hunterAttackDamage = hunter.attackDamage();
-//        int newHp = hpBeforeAttack - hunterAttackDamage;
-//
-//        //Assert
-//        assertTrue(hpBeforeAttack > newHp);
-//    }
+
     @Test
     void hunterShouldBeAliveAtStart() {
 
