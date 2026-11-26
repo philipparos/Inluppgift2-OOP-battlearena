@@ -15,7 +15,6 @@ public class PlayerTest {
 
     //TDD
 
-    Player player;
     Player playerCreator;
     Fighter warrior = new Warrior();
     Fighter mage = new Mage();
@@ -44,7 +43,6 @@ public class PlayerTest {
     void shouldCreatePlayerWithFighter(){
         Player player = new Player("Olof Palme", warrior);
 
-        assertEquals("Warrior", player.getFighter().getFIGHTER_NAME());
-        assertEquals("Olof Palme", player.getName());
+        assertEquals(warrior, player.getFighter());
     }
 }

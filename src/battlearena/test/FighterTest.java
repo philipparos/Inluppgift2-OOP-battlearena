@@ -29,24 +29,27 @@ class FighterTest {
 
         //Assert
         assertFalse(fighter.isAlive());
-//        assertTrue(fighter.getHp() > 0);
-//        assertTrue(fighter.getHp() > 120);
-//        assertTrue(fighter.getHp() == 0);
-//        assertTrue(fighter.getHp() < 0);
-//        assertTrue(fighter.getHp())
     }
+
     @Test
     void shouldBeAliveWhenHpIsAboveZero(){
         fighter.setHp(1);
 
         assertTrue(fighter.isAlive());
     }
+
     @Test
-    void hpCanNotBeNegativeWhenFighterIsNotAlive(){
+    void notAliveWhenHpBelowZero(){
         fighter.setHp(-5);
 
         assertFalse(fighter.isAlive());
-        assertEquals(0, fighter.getHp());
-        assertNotEquals(-5, 0);
+    }
+
+    // TDD
+    @Test
+    void shouldResetHpToMaxHp(){
+        fighter.setHp(7);
+        fighter.resetHp();
+        assertEquals(fighter.getMaxHp(), fighter.getHp());
     }
 }

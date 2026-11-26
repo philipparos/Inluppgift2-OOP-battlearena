@@ -44,5 +44,4 @@ public class ListHandler {
             counter++;
         }
     }
-
 }
