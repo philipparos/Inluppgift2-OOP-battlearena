@@ -27,9 +27,9 @@ public class ListHandler {
         return fighters;
     }
 
-    public static List<Fighter> removePlayerChoice(List<Fighter> availableFighters, Fighter humanfighter) {
+    public static List<Fighter> removePlayerChoice(List<Fighter> availableFighters, Fighter humanFighter) {
         for (Fighter fighter : availableFighters) {
-            if (humanfighter.equals(fighter)) {
+            if (humanFighter.equals(fighter)) {
                 availableFighters.remove(fighter);
                 return availableFighters;
             }

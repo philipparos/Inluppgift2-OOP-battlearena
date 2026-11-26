@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class InputHandler {
     private final Scanner scanner;
     String menuNumberInput;
+
     public InputHandler(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -36,4 +37,17 @@ public class InputHandler {
         }
     }
 
+    public boolean askToPlayAgain() {
+        while(true) {
+            System.out.println("Play again? (y/n)");
+            String answer = scanner.nextLine().trim();
+            if (answer.equalsIgnoreCase("y")) {
+                return true;
+            }
+            if (answer.equalsIgnoreCase("n")) {
+                return false;
+            }
+            System.out.println("Invalid input");
+        }
+    }
 }
