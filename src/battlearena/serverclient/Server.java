@@ -28,18 +28,14 @@ public class Server {
 
                     while ((message = inputReader.readLine()) != null) {
 
-                        if (message.equalsIgnoreCase("QUIT")) {
-                            outputWriter.println("Hejdå");
-                            break;
-                        }
-
                         Files.writeString(
                                 file,
-                                message + "\n",
+                                message.split("#")[0] + "\n" + message.split("#")[1] + "\n",
                                 StandardOpenOption.APPEND
                         );
 
-                        System.out.println("Sparade meddelandet " + message);
+
+                        System.out.println("Sparade val av Fighter!");
                         outputWriter.println("Sparat");
 
                     }

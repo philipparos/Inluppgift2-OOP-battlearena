@@ -21,11 +21,6 @@ public class Warrior extends Fighter {
     }
 
     @Override
-    public int actualAttackDamage(Fighter defender) {
-        return Math.min(attackDamageRoll(), defender.getHp());
-    }
-
-    @Override
     protected int adjustIncomingDamage(int damage) {
         if (defendPercentage == 0) {
             return damage;

@@ -43,7 +43,7 @@ public class GameLogic {
 
            gameUtility.firstAttack(attacker, defender);
 
-            if (!defender.isAlive()) {
+            if (!defender.isAlive())  {
                 battlePrinter.matchConclusion(attacker, defender);
                 break;
             }

@@ -58,7 +58,7 @@ public class BattlePrinter {
                                 + warrior.getFIGHTER_NAME()
                                 + " has "
                                 + warrior.getHp()
-                                + "hp\u001B[0m");
+                                + " hp\u001B[0m");
                 break;
 
             case Mage mage:
@@ -88,7 +88,7 @@ public class BattlePrinter {
                                 + defender.getFIGHTER_NAME()
                                 + " has "
                                 + defender.getHp()
-                                + "hp\u001B[0m");
+                                + " hp\u001B[0m");
                 break;
 
             default:
@@ -98,21 +98,21 @@ public class BattlePrinter {
 
     public String resultClient(Player human, CPUPlayer CPU) {
 
-        return human + "";
+        return human + "#" + CPU + "#";
     }
 
     public void matchConclusion(Fighter winner, Fighter loser) {
         System.out.println("=================================");
         System.out.println("\uD83D\uDC80 " + "\u001B[31m" + loser.getFIGHTER_NAME() + " died!\u001B[0m" + " \uD83D\uDC80" );
         System.out.println("\uD83C\uDF89 " + "\u001B[33m" + winner.getFIGHTER_NAME() + " wins!\u001B[0m" + " \uD83C\uDF89");
-        System.out.println("=================================");
+        System.out.println("================================="); // skriver till terminalen
     }
     public String buildMatchConclusion(Fighter winner, Fighter loser) {
-        String line = "====================================";
+       matchConclusion(winner, loser);
         String loserLine = "\uD83D\uDC80 \u001B[31m" + loser.getFIGHTER_NAME() + " died!\u001B[0m \uD83D\uDC80";
         String winnerLine = "\uD83C\uDFC6 \u001B[33m" + winner.getFIGHTER_NAME() + " wins!\u001B[0m \uD83C\uDFC6";
 
-        return String.join(System.lineSeparator(), line, loserLine, winnerLine, line);
+        return String.join(System.lineSeparator(), loserLine, winnerLine); // SKA skriva till filen
     }
 
     public String WinnerLoserClient(Fighter winner, Fighter loser) {

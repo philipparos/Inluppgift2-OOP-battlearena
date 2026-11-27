@@ -20,10 +20,6 @@ public class Mage extends Fighter {
         return (int)(Math.random() * 8) + 20;
     }
 
-    @Override
-    public int actualAttackDamage(Fighter defender) {
-        return Math.min(attackDamageRoll(), defender.getHp());
-    }
 
     public int heal() {
         int healAmount = specialActionRoll();
