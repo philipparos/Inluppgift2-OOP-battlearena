@@ -1,12 +1,13 @@
 package battlearena.characters;
 
 public class Hunter extends Fighter {
+
     private static final int MAX_HP = 115;
-    private static final String SPECIAL_ATTACK_NAME = "Double attack";
+    private static final String SPECIAL_ACTION_NAME = "Power Shot";
     private static final String CHARACTER_NAME = "Hunter";
 
     public Hunter() {
-        super(CHARACTER_NAME, MAX_HP, SPECIAL_ATTACK_NAME);
+        super(CHARACTER_NAME, MAX_HP, SPECIAL_ACTION_NAME);
     }
 
     @Override
@@ -16,10 +17,8 @@ public class Hunter extends Fighter {
 
     @Override
     public int specialActionRoll() {
-        return (int) (Math.random() * 8) + 15;
+        return (int) (Math.random() * 8) + 20;
     }
-
-
 
     public int actualSpecialDamage(Fighter defender) {
         return Math.min(specialActionRoll(), defender.getHp());

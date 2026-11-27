@@ -2,8 +2,6 @@ package battlearena.test;
 
 import battlearena.characters.Fighter;
 import battlearena.characters.Hunter;
-import battlearena.characters.Mage;
-import battlearena.characters.Warrior;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,16 +16,10 @@ class FighterTest {
         fighter = new Hunter();
     }
 
-
     @Test
     void shouldNotBeAliveWhenHpIsZero(){
-        //Arrange
         fighter.setHp(0);
 
-        //Act
-        fighter.isAlive();
-
-        //Assert
         assertFalse(fighter.isAlive());
     }
 

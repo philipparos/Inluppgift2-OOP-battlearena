@@ -1,15 +1,12 @@
 package battlearena.game;
 
 import battlearena.characters.Fighter;
-
 import java.util.List;
 import java.util.Random;
-
 
 public class GameSetUp {
 
     private Fighter chosenPlayerFighter;
-
 
     public Player createHumanPlayer(InputHandler inputHandler, ListHandler listHandler) {
         String name = inputHandler.askForName();
@@ -21,7 +18,6 @@ public class GameSetUp {
 
         return new Player(name, chosenPlayerFighter);
     }
-
 
     public void setChosenPlayerFighter(Fighter chosenPlayerFighter) {
         this.chosenPlayerFighter = chosenPlayerFighter;
@@ -35,8 +31,6 @@ public class GameSetUp {
         int randomIndex = random.nextInt(shorterList.size());
         Fighter CPUfighter = shorterList.get(randomIndex);
         return new CPUPlayer(CPUfighter);
-
-
     }
 }
 

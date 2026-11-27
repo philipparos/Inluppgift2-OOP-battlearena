@@ -1,17 +1,17 @@
 package battlearena.game;
 
-import battlearena.characters.Fighter;
-import battlearena.characters.Hunter;
-import battlearena.characters.Mage;
-import battlearena.characters.Warrior;
 import battlearena.serverclient.FileHandler;
-
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class InputHandler {
+
     private final Scanner scanner;
+    private final String nameRegex = "^(?!.* {2})[a-zA-ZåäöÅÄÖéÉ0-9 _\\-]{2,16}$";
+    private final String menuNumberRegex = "^[1-3]$";
     String menuNumberInput;
     FileHandler fileHandler = new FileHandler();
+
 
     public InputHandler(Scanner scanner) {
         this.scanner = scanner;
@@ -21,7 +21,7 @@ public class InputHandler {
         System.out.println("Write your name");
         while(true){
             String nameInput = scanner.nextLine().trim();
-            if(nameInput.matches("^(?!.* {2})[a-zA-ZåäöÅÄÖéÉ0-9 _\\-]{2,16}$")) {
+            if(nameInput.matches(nameRegex)){
                 return nameInput;
         }
             System.out.println("Wrong input, try again!");
@@ -32,26 +32,12 @@ public class InputHandler {
         System.out.println("Pick a fighter: ");
         while (true) {
             menuNumberInput = scanner.nextLine().trim();
-            if (menuNumberInput.matches("[1-3]")) {
+            if (menuNumberInput.matches(menuNumberRegex)) {
                 return Integer.parseInt(menuNumberInput);
             }
             System.out.println("You can only pick a character between 1-3!");
         }
     }
-
-//    public boolean askToPlayAgain() {
-//        while(true) {
-//            System.out.println("Play again? (y/n)");
-//            String answer = scanner.nextLine().trim();
-//            if (answer.equalsIgnoreCase("y")) {
-//                return true;
-//            }
-//            if (answer.equalsIgnoreCase("n")) {
-//                return false;
-//            }
-//            System.out.println("Invalid input");
-//        }
-//    }
 
     public boolean menu(){
         while (true) {
@@ -63,10 +49,10 @@ public class InputHandler {
                 case "1":
                     return true;
                 case "2":
-                    fileHandler.file();
+                    fileHandler.readMatchResults();
                     break;
                 case "3":
-                    System.out.println("Bye!");
+                    System.out.println("GG!");
                     scanner.close();
                     return false;
                 default:

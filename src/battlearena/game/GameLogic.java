@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameLogic {
+
     private GameUtility gameUtility = new GameUtility();
     private final Random randomObject = new Random();
     private BattlePrinter battlePrinter = new BattlePrinter();
@@ -14,24 +15,29 @@ public class GameLogic {
     ListHandler listHandler = new ListHandler();
     InputHandler inputHandler = new InputHandler(new Scanner(System.in));
 
+
     public void startGameLoop() {
-        BattlePrinter.welcomeMessage();
         boolean running = true;
+        String matchResult;
+        String fighterChoice;
+        BattlePrinter.welcomeMessage();
+
 
         while(running){
             Player humanPlayer = gameSetUp.createHumanPlayer(inputHandler, listHandler);
             CPUPlayer cpuPlayer = gameSetUp.createCPUPlayer(listHandler);
+
             battlePrinter.printFighterChoice(humanPlayer);
             battlePrinter.printFighterChoice(cpuPlayer);
             battlePrinter.printBlankLine();
 
-            String matchConclusion = startBattle(humanPlayer.getFighter(), cpuPlayer.getFighter());
+            matchResult = startBattle(humanPlayer.getFighter(), cpuPlayer.getFighter());
 
-            String result = battlePrinter.resultClient(humanPlayer, cpuPlayer);
-            Client.sendResult(result);
+            fighterChoice = battlePrinter.buildFighterChoiceString(humanPlayer, cpuPlayer);
+            Client.sendResult(fighterChoice);
 
-            if (!matchConclusion.isBlank()) {
-                Client.sendResult(matchConclusion);
+            if (!matchResult.isBlank()) {
+                Client.sendResult(matchResult);
             }
             running = inputHandler.menu();
         }
@@ -39,13 +45,13 @@ public class GameLogic {
 
     public String startBattle(Fighter player1, Fighter player2) {
         boolean isPlayerTurn = randomObject.nextBoolean();
+        String winnerAndLoser = " ";
         player1.resetHp();
         player2.resetHp();
 
-
         battlePrinter.printBattleStart(player1, player2, isPlayerTurn);
         battlePrinter.printBlankLine();
-        String matchConclusion = " ";
+
         while (player1.isAlive() && player2.isAlive()) {
 
             Fighter attacker = isPlayerTurn ? player1 : player2;
@@ -54,16 +60,16 @@ public class GameLogic {
            gameUtility.firstAttack(attacker, defender);
 
             if (!defender.isAlive())  {
-                battlePrinter.matchConclusion(attacker, defender);
-                matchConclusion = battlePrinter.buildMatchConclusion(attacker, defender);
+                battlePrinter.printMatchConclusion(attacker, defender);
+                winnerAndLoser = battlePrinter.buildMatchConclusionString(attacker, defender);
                 break;
             }
 
             gameUtility.secondAction(attacker, defender);
 
             if (!defender.isAlive()) {
-                battlePrinter.matchConclusion(attacker, defender);
-                matchConclusion = battlePrinter.buildMatchConclusion(attacker, defender);
+                battlePrinter.printMatchConclusion(attacker, defender);
+                winnerAndLoser = battlePrinter.buildMatchConclusionString(attacker, defender);
                 break;
             }
 
@@ -75,6 +81,6 @@ public class GameLogic {
 
             isPlayerTurn = !isPlayerTurn;
         }
-        return matchConclusion;
+        return winnerAndLoser;
     }
 }
