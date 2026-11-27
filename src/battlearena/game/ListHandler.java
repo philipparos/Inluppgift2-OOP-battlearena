@@ -36,7 +36,7 @@ public class ListHandler {
     public void printFighterTypes() {
         int counter = 1;
         for (Fighter fighter : fighters) {
-            System.out.println(counter + ". " + fighter.getFIGHTER_NAME());
+            System.out.println(counter + ". " + fighter.getFighterName());
             counter++;
         }
     }

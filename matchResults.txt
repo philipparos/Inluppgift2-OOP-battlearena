@@ -10,3 +10,15 @@ Computer picked Warrior
 Warrior wins! 
 Mage died!
 
+Frasse picked Mage
+Computer picked Warrior
+
+Mage wins! 
+Warrior died!
+
+Morris picked Hunter
+Computer picked Warrior
+
+Hunter wins! 
+Warrior died!
+
