@@ -7,24 +7,37 @@ import battlearena.characters.Warrior;
 
 public class BattlePrinter {
 
+    private static String line = "=================================";
+
+
     public static void welcomeMessage() {
-        System.out.println("\u001B[34m=================================");
+        System.out.println("\u001B[34m"
+                + line);
         System.out.println("Welcome to the Battle Arena game");
-        System.out.println("=================================\u001B[0m");
+        System.out.println(line
+                + "\u001B[0m");
     }
 
-    public void printFighterChoice(Player player){
+    public void printFighterChoice(Player player) {
         System.out.println(player.getName()
                 + " picked "
                 + player.getFighter().getFighterName());
     }
 
     public void printBattleStart(Fighter player, Fighter cpuPlayer, boolean isPlayerTurn) {
-        System.out.println(player.getFighterName() + " starts with " + player.getMaxHp() + " hp");
-        System.out.println(cpuPlayer.getFighterName() + " starts with " + cpuPlayer.getMaxHp() + " hp");
-        System.out.println((isPlayerTurn ? player.getFighterName() : cpuPlayer.getFighterName()) + " starts!");
+        System.out.println(player.getFighterName()
+                + " starts with "
+                + player.getMaxHp()
+                + " hp");
+        System.out.println(cpuPlayer.getFighterName()
+                + " starts with "
+                + cpuPlayer.getMaxHp()
+                + " hp");
         printBlankLine();
-        System.out.println("************************************");
+        System.out.println((isPlayerTurn ? player.getFighterName() : cpuPlayer.getFighterName())
+                + " starts!");
+        printBlankLine();
+        System.out.println(line);
         printBlankLine();
     }
 
@@ -32,63 +45,62 @@ public class BattlePrinter {
         System.out.println();
     }
 
-
-    public void printAttack(Fighter attacker, Fighter defender, int firstDamage) {
-        System.out.println(
-                        attacker.getFighterName()
-                        + " makes "
-                        + firstDamage
-                        + " damage! "
-                        + defender.getFighterName()
-                        + " has "
-                        + defender.getHp()
-                        + " hp");
+    public void printAttack(Fighter attacker, Fighter defender, int attackDamage) {
+        System.out.println(attacker.getFighterName()
+                + " makes "
+                + attackDamage
+                + " damage! "
+                + defender.getFighterName()
+                + " has "
+                + defender.getHp()
+                + " hp");
     }
 
     public void printSpecialAction(Fighter attacker, Fighter defender, int specialAbility) {
-        System.out.println("\u001B[34m" + attacker.getSpecialActionName() + " has been used!\u001B[0m");
+        System.out.println("\u001B[34m"
+                + attacker.getSpecialActionName()
+                + " has been used!\u001B[0m");
 
         switch (attacker) {
             case Warrior warrior:
                 System.out.println("\u001B[35m" +
                         warrior.getFighterName()
-                                + " blocks "
-                                + warrior.getDefendPercentage()
-                                + " % incoming damage! "
-                                + warrior.getFighterName()
-                                + " has "
-                                + warrior.getHp()
-                                + " hp\u001B[0m");
+                        + " blocks "
+                        + warrior.getDefendPercentage()
+                        + " % incoming damage! "
+                        + warrior.getFighterName()
+                        + " has "
+                        + warrior.getHp()
+                        + " hp\u001B[0m");
                 break;
 
             case Mage mage:
                 if (specialAbility == 0) {
-                    System.out.println(
-                            mage.getFighterName()
-                                    + " tried to heal but is already at full health!");
+                    System.out.println(mage.getFighterName()
+                            + " tried to heal but is already at full health!");
                 } else {
                     System.out.println("\u001B[32m" +
                             mage.getFighterName()
-                                    + " heals "
-                                    + specialAbility
-                                    + " hp! "
-                                    + mage.getFighterName()
-                                    + " has "
-                                    + mage.getHp()
-                                    + " hp\u001B[0m");
+                            + " heals "
+                            + specialAbility
+                            + " hp! "
+                            + mage.getFighterName()
+                            + " has "
+                            + mage.getHp()
+                            + " hp\u001B[0m");
                 }
                 break;
 
             case Hunter hunter:
                 System.out.println("\u001B[38;5;208m" +
                         hunter.getFighterName()
-                                + " makes "
-                                + specialAbility
-                                + " damage! "
-                                + defender.getFighterName()
-                                + " has "
-                                + defender.getHp()
-                                + " hp\u001B[0m");
+                        + " makes "
+                        + specialAbility
+                        + " damage! "
+                        + defender.getFighterName()
+                        + " has "
+                        + defender.getHp()
+                        + " hp\u001B[0m");
                 break;
 
             default:
@@ -96,19 +108,33 @@ public class BattlePrinter {
         }
     }
 
-    public String resultClient(Player human, CPUPlayer CPU) {
-        return human + "#" + CPU + "#";
+    public String buildFighterChoiceString(Player human, CPUPlayer CPU) {
+        return human
+                + "#"
+                + CPU
+                + "#";
     }
 
-    public void matchConclusion(Fighter winner, Fighter loser) {
-        System.out.println("=================================");
-        System.out.println("\uD83D\uDC80 " + "\u001B[31m" + loser.getFighterName() + " died!\u001B[0m" + " \uD83D\uDC80" );
-        System.out.println("\uD83C\uDF89 " + "\u001B[33m" + winner.getFighterName() + " wins!\u001B[0m" + " \uD83C\uDF89");
-        System.out.println("================================="); // skriver till terminalen
+    public void printMatchConclusion(Fighter winner, Fighter loser) {
+        System.out.println(line);
+        System.out.println("\uD83D\uDC80 "
+                + "\u001B[31m"
+                + loser.getFighterName()
+                + " died!\u001B[0m"
+                + " \uD83D\uDC80");
+        System.out.println("\uD83C\uDF89 "
+                + "\u001B[33m"
+                + winner.getFighterName()
+                + " wins!\u001B[0m"
+                + " \uD83C\uDF89");
+        System.out.println(line);
     }
-    public String buildMatchConclusion(Fighter winner, Fighter loser) {
-        return winner.getFighterName() + " wins! #" + loser.getFighterName() + " died!";
 
+    public String buildMatchConclusionString(Fighter winner, Fighter loser) {
+        return winner.getFighterName()
+                + " wins! #"
+                + loser.getFighterName()
+                + " died!";
     }
 }
 

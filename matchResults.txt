@@ -22,3 +22,45 @@ Computer picked Warrior
 Hunter wins! 
 Warrior died!
 
+RÅTTA picked Warrior
+Computer picked Mage
+
+Mage wins! 
+Warrior died!
+
+Bajs picked Mage
+Computer picked Hunter
+
+Mage wins! 
+Hunter died!
+
+Emily picked Warrior
+Computer picked Hunter
+
+Hunter wins! 
+Warrior died!
+
+Emily picked Warrior
+Computer picked Mage
+
+Mage wins! 
+Warrior died!
+
+Emily picked Mage
+Computer picked Hunter
+
+Hunter wins! 
+Mage died!
+
+Emily picked Warrior
+Computer picked Hunter
+
+Hunter wins! 
+Warrior died!
+
+Emily picked Mage
+Computer picked Hunter
+
+Mage wins! 
+Hunter died!
+

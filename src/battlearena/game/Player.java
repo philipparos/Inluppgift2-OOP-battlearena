@@ -3,12 +3,10 @@ package battlearena.game;
 import battlearena.characters.Fighter;
 
 public class Player {
+
     private String name;
     private Fighter fighter;
 
-
-    public Player() {
-    }
 
     public Player(String name, Fighter fighter) {
         this.name = name;
@@ -24,8 +22,7 @@ public class Player {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getName() + " picked " + getFighter();
     }
-
 }

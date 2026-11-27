@@ -3,6 +3,7 @@ package battlearena.characters;
 import battlearena.game.ActionType;
 
 public abstract class Fighter implements ActionType {
+
     private final String fighterName;
     private final int maxHp;
     private int currentHp;

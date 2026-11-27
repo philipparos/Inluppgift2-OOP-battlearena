@@ -1,4 +1,5 @@
 package battlearena.game;
+
 import battlearena.characters.Fighter;
 import battlearena.characters.Hunter;
 import battlearena.characters.Mage;
@@ -15,9 +16,8 @@ public class ListHandler {
     );
 
     public ArrayList<Fighter> availableFighters() {
-        return new ArrayList<Fighter>(fighters);
+        return new ArrayList<>(fighters);
     }
-
 
     public List<Fighter> getFighters() {
         return fighters;

@@ -4,10 +4,10 @@ import battlearena.characters.Fighter;
 import battlearena.characters.Hunter;
 import battlearena.characters.Mage;
 import battlearena.characters.Warrior;
-
 import java.util.Random;
 
 public class GameUtility {
+
     BattlePrinter battlePrinter = new BattlePrinter();
 
     public void firstAttack(Fighter attacker, Fighter defender) {
@@ -17,7 +17,7 @@ public class GameUtility {
     }
 
     public void secondAction(Fighter attacker, Fighter defender) {
-        ActionTypes extraAction = rollActionType(null);
+        ActionTypes extraAction = rollActionType();
 
         if (extraAction == ActionTypes.ATTACK) {
             firstAttack(attacker, defender);
@@ -27,14 +27,14 @@ public class GameUtility {
         battlePrinter.printBlankLine();
     }
 
-    public ActionTypes rollActionType(ActionTypes actionType) {
+    public ActionTypes rollActionType() {
         ActionTypes[] actionsArray = ActionTypes.values();
         Random randomObject = new Random();
         return actionsArray[randomObject.nextInt(actionsArray.length)];
     }
 
     public void fighterChecker(Fighter fighter, Fighter defender) {
-        int specialAbility = 0;
+        int specialAbility;
         switch (fighter) {
             case Warrior warrior:
                 warrior.useSpecialAction();

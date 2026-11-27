@@ -1,13 +1,14 @@
 package battlearena.characters;
 
 public class Warrior extends Fighter {
+
     private int defendPercentage;
     private static final int MAX_HP = 120;
-    private static final String SPECIAL_ATTACK_NAME = "Defend";
+    private static final String SPECIAL_ACTION_NAME = "Defend";
     private static final String CHARACTER_NAME = "Warrior";
 
     public Warrior() {
-        super(CHARACTER_NAME, MAX_HP, SPECIAL_ATTACK_NAME);
+        super(CHARACTER_NAME, MAX_HP, SPECIAL_ACTION_NAME);
     }
 
     @Override
