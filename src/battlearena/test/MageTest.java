@@ -20,7 +20,6 @@ public class MageTest {
     void mageShouldHave112Hp() {
 
         assertEquals(112, mage.getMaxHp());
-
     }
 
     @Test

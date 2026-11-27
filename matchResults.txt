@@ -64,3 +64,39 @@ Computer picked Hunter
 Mage wins! 
 Hunter died!
 
+Bajsråtte Apan picked Warrior
+Computer picked Hunter
+
+Hunter wins! 
+Warrior died!
+
+MoaToa picked Mage
+Computer picked Hunter
+
+Mage wins! 
+Hunter died!
+
+Moa picked Warrior
+Computer picked Mage
+
+Warrior wins! 
+Mage died!
+
+Maosen picked Warrior
+Computer picked Mage
+
+Warrior wins! 
+Mage died!
+
+Moa picked Warrior
+Computer picked Hunter
+
+Warrior wins! 
+Hunter died!
+
+Sliskomed Dicken picked Mage
+Computer picked Hunter
+
+Mage wins! 
+Hunter died!
+

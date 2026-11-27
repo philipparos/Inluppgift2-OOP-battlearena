@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HunterTest {
-    private Fighter hunter;
+    private Hunter hunter;
     private Fighter mage;
     @BeforeEach
     void setUp(){
@@ -22,10 +22,8 @@ public class HunterTest {
         int hpBeforeAttack = mage.getHp();
         int hunterAttackDamage = hunter.attackDamageRoll();
 
-        //Act
         int actualDamage = mage.takeDamage(hunterAttackDamage);
 
-        //Assert
         assertEquals(hpBeforeAttack - actualDamage, mage.getHp());
     }
 
@@ -37,7 +35,6 @@ public class HunterTest {
         assertTrue(damage >= 5);
         assertTrue(damage <= 15);
     }
-
 
     @Test
     void hunterShouldBeAliveAtStart() {

@@ -3,7 +3,7 @@ package battlearena.characters;
 public class Mage extends Fighter {
 
     private static final int MAX_HP = 112;
-    private static final String SPECIAL_ACTION_NAME = "Heal";
+    private static final String SPECIAL_ACTION_NAME = "Healing Surge";
     private static final String CHARACTER_NAME = "Mage";
 
 
@@ -18,7 +18,7 @@ public class Mage extends Fighter {
 
     @Override
     public int specialActionRoll() {
-        return (int)(Math.random() * 8) + 20;
+        return (int)(Math.random() * 8) + 18;
     }
 
 

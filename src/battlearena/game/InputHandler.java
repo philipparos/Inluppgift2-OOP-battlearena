@@ -49,10 +49,10 @@ public class InputHandler {
                 case "1":
                     return true;
                 case "2":
-                    fileHandler.file();
+                    fileHandler.readMatchResults();
                     break;
                 case "3":
-                    System.out.println("Bye!");
+                    System.out.println("GG!");
                     scanner.close();
                     return false;
                 default:

@@ -17,9 +17,8 @@ public class Hunter extends Fighter {
 
     @Override
     public int specialActionRoll() {
-        return (int) (Math.random() * 8) + 15;
+        return (int) (Math.random() * 8) + 20;
     }
-
 
     public int actualSpecialDamage(Fighter defender) {
         return Math.min(specialActionRoll(), defender.getHp());

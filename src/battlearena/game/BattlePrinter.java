@@ -9,7 +9,6 @@ public class BattlePrinter {
 
     private static String line = "=================================";
 
-
     public static void welcomeMessage() {
         System.out.println("\u001B[34m"
                 + line);
@@ -67,7 +66,7 @@ public class BattlePrinter {
                         warrior.getFighterName()
                         + " blocks "
                         + warrior.getDefendPercentage()
-                        + " % incoming damage! "
+                        + " % of next incoming attack! "
                         + warrior.getFighterName()
                         + " has "
                         + warrior.getHp()

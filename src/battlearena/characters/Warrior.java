@@ -4,7 +4,7 @@ public class Warrior extends Fighter {
 
     private int defendPercentage;
     private static final int MAX_HP = 120;
-    private static final String SPECIAL_ACTION_NAME = "Defend";
+    private static final String SPECIAL_ACTION_NAME = "Shield Stance";
     private static final String CHARACTER_NAME = "Warrior";
 
     public Warrior() {
@@ -13,12 +13,12 @@ public class Warrior extends Fighter {
 
     @Override
     public int attackDamageRoll() {
-       return (int)(Math.random() * 11) + 8;
+       return (int)(Math.random() * 11) + 12;
     }
 
     @Override
     public int specialActionRoll() {
-        return (int)(Math.random() * 31) + 20; // 20-50%
+        return (int)(Math.random() * 21) + 40;
     }
 
     @Override
