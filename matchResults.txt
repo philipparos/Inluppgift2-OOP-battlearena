@@ -1,84 +1,24 @@
-Emily wins: 3 times
-Emily died: 0 times
-
-Moa wins: 10 times
-
-
-Player wins: 1010100 times
-
-Emily picked Mage: 0 times
-Emily picked Warrior: 1 times
-Emily picked Hunter: 5 times
-
-Computer wins: 1 times
-Computer died : 7 times
-
-Computer picked Mage: 0 times
-Computer picked Warrior: 1 times
-Computer picked Hunter: 5 times
-
-///
-
-
-
-
-Battle 1++
-Player picked Warrior. Computer picked Mage. Player wins!
-Computer wins x++ times
-Player wins x++ times
-
-Battle 2++
-Player picked Mage. Computer picked Hunter. Computer!
-Computer wins x++ times
-Player wins x++ times
-
-
-///
-
-Emily picked Warrior, Computer picked Mage. Emily won
-Emily picked Hunter, Computer picked Warrior. Computer won
-Emily picked Mage, Computer picked Hunter. Emily won
-Emily picked Mage, Computer picked Warrior. Emily won
-
-Emily wins: 3 out of 4 times
-moa wins: 1 times
-Computer wins: 1 out of 4 times
-hejråttahej hoppjag är bästsnälla låt det funka
-snälla funka
-helloooooo 
-0test
-10test
-battlearena.characters.Mage@5fd0d5ae
-battlearena.characters.Hunter@2d98a335
-Warrior
-Hunter
-Warrior
-Mage
-Testkörning
-
-"Moa picked Hunter"
-"Computer picked Mage"
-Moa picked Mage
+Tiger picked Warrior
 Computer picked Hunter
-Moa picked Warrior
-Computer picked Mage
-moa picked Mage
-Computer picked Hunter
-moa picked Hunter
-Computer picked Mage
-Moa picked Mage
-Computer picked Hunter
-Bajsapa picked Warrior
-Computer picked Hunter
-Moa picked Warrior
-Computer picked Hunter
-Moa picked Mage
-Computer picked Hunter
-moa picked Mage
-Computer picked Hunter
-Moa picked Hunter
-Computer picked Mage
-moa picked Hunter
-Computer picked Mage
-Moa picked Mage
-Computer picked Hunter
+
+Warrior wins! 
+Hunter died!
+
+Tyra picked Mage
+Computer picked Warrior
+
+Warrior wins! 
+Mage died!
+
+Frasse picked Mage
+Computer picked Warrior
+
+Mage wins! 
+Warrior died!
+
+Morris picked Hunter
+Computer picked Warrior
+
+Hunter wins! 
+Warrior died!
+

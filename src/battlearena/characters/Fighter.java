@@ -3,21 +3,20 @@ package battlearena.characters;
 import battlearena.game.ActionType;
 
 public abstract class Fighter implements ActionType {
-    private final String FIGHTER_NAME;
-    private int maxHp;
+    private final String fighterName;
+    private final int maxHp;
     private int currentHp;
-    //private int MIN_HP;
-    private final String SPECIAL_ATTACK_NAME;
+    private final String specialActionName;
 
-    public Fighter(String FIGHTER_NAME, int maxHp, String SPECIAL_ATTACK_NAME) {
-        this.FIGHTER_NAME = FIGHTER_NAME;
+    public Fighter(String fighterName, int maxHp, String specialActionName) {
+        this.fighterName = fighterName;
         this.maxHp = maxHp;
         this.currentHp = maxHp;
-        this.SPECIAL_ATTACK_NAME = SPECIAL_ATTACK_NAME;
+        this.specialActionName = specialActionName;
     }
 
-    public String getFIGHTER_NAME() {
-        return FIGHTER_NAME;
+    public String getFighterName() {
+        return fighterName;
     }
 
     public int getMaxHp() {
@@ -32,8 +31,8 @@ public abstract class Fighter implements ActionType {
         return currentHp;
     }
 
-    public String getSPECIAL_ATTACK_NAME() {
-        return SPECIAL_ATTACK_NAME;
+    public String getSpecialActionName() {
+        return specialActionName;
     }
 
 
@@ -59,7 +58,7 @@ public abstract class Fighter implements ActionType {
 
     @Override
     public String toString() {
-        return getFIGHTER_NAME();
+        return getFighterName();
     }
 }
 
