@@ -12,6 +12,7 @@ public class BattlePrinter {
         System.out.println("Welcome to the Battle Arena game");
         System.out.println("=================================\u001B[0m");
     }
+
     public void printFighterChoice(Player player){
         System.out.println(player.getName()
                 + " picked "
@@ -22,7 +23,13 @@ public class BattlePrinter {
         System.out.println(player.getFIGHTER_NAME() + " starts with " + player.getMaxHp() + " hp");
         System.out.println(cpuPlayer.getFIGHTER_NAME() + " starts with " + cpuPlayer.getMaxHp() + " hp");
         System.out.println((isPlayerTurn ? player.getFIGHTER_NAME() : cpuPlayer.getFIGHTER_NAME()) + " starts!");
+        printBlankLine();
         System.out.println("************************************");
+        printBlankLine();
+    }
+
+    public void printBlankLine() {
+        System.out.println();
     }
 
 
@@ -91,7 +98,7 @@ public class BattlePrinter {
 
     public String resultClient(Player human, CPUPlayer CPU) {
 
-        return human + "\n" + CPU;
+        return human + "";
     }
 
     public void matchConclusion(Fighter winner, Fighter loser) {
@@ -100,4 +107,19 @@ public class BattlePrinter {
         System.out.println("\uD83C\uDF89 " + "\u001B[33m" + winner.getFIGHTER_NAME() + " wins!\u001B[0m" + " \uD83C\uDF89");
         System.out.println("=================================");
     }
+    public String buildMatchConclusion(Fighter winner, Fighter loser) {
+        String line = "====================================";
+        String loserLine = "\uD83D\uDC80 \u001B[31m" + loser.getFIGHTER_NAME() + " died!\u001B[0m \uD83D\uDC80";
+        String winnerLine = "\uD83C\uDFC6 \u001B[33m" + winner.getFIGHTER_NAME() + " wins!\u001B[0m \uD83C\uDFC6";
+
+        return String.join(System.lineSeparator(), line, loserLine, winnerLine, line);
+    }
+
+    public String WinnerLoserClient(Fighter winner, Fighter loser) {
+        return buildMatchConclusion(winner, loser);
+    }
+
+////    public void matchConclusion(Fighter winner, Fighter loser) {
+////        System.out.println(buildMatchConclusion(winner, loser));
+//    }
 }

@@ -64,7 +64,7 @@ public class InputHandler {
                     return true;
                 case "2":
                     fileHandler.file();
-                    return false;
+                    break;
                 case "3":
                     System.out.println("Bye!");
                     scanner.close();

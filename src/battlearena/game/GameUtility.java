@@ -24,6 +24,7 @@ public class GameUtility {
         } else {
             fighterChecker(attacker, defender);
         }
+        battlePrinter.printBlankLine();
     }
 
     public ActionTypes rollActionType(ActionTypes actionType) {

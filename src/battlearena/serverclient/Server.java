@@ -47,6 +47,7 @@ public class Server {
 
                 } catch (IOException e) {
                     System.out.println("Fel " + e.getMessage());
+                    e.printStackTrace();
                 }
             }
         }catch (IOException e){

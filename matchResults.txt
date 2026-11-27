@@ -1,84 +1,38 @@
-Emily wins: 3 times
-Emily died: 0 times
-
-Moa wins: 10 times
-
-
-Player wins: 1010100 times
-
-Emily picked Mage: 0 times
-Emily picked Warrior: 1 times
-Emily picked Hunter: 5 times
-
-Computer wins: 1 times
-Computer died : 7 times
-
-Computer picked Mage: 0 times
-Computer picked Warrior: 1 times
-Computer picked Hunter: 5 times
-
-///
-
-
-
-
-Battle 1++
-Player picked Warrior. Computer picked Mage. Player wins!
-Computer wins x++ times
-Player wins x++ times
-
-Battle 2++
-Player picked Mage. Computer picked Hunter. Computer!
-Computer wins x++ times
-Player wins x++ times
-
-
-///
-
-Emily picked Warrior, Computer picked Mage. Emily won
-Emily picked Hunter, Computer picked Warrior. Computer won
-Emily picked Mage, Computer picked Hunter. Emily won
-Emily picked Mage, Computer picked Warrior. Emily won
-
-Emily wins: 3 out of 4 times
-moa wins: 1 times
-Computer wins: 1 out of 4 times
-hejråttahej hoppjag är bästsnälla låt det funka
-snälla funka
-helloooooo 
-0test
-10test
-battlearena.characters.Mage@5fd0d5ae
-battlearena.characters.Hunter@2d98a335
-Warrior
-Hunter
-Warrior
-Mage
-Testkörning
-
-"Moa picked Hunter"
-"Computer picked Mage"
-Moa picked Mage
-Computer picked Hunter
-Moa picked Warrior
+Testkörning 1 körde 2 gånger, fick felmeddelande
+Emily picked Mage
+Computer picked Warrior
+Yaheya picked Hunter
 Computer picked Mage
-moa picked Mage
-Computer picked Hunter
-moa picked Hunter
+
+Testkörning 2 körde 1 gång sen show history
+Emily picked Hunter
 Computer picked Mage
-Moa picked Mage
-Computer picked Hunter
-Bajsapa picked Warrior
-Computer picked Hunter
-Moa picked Warrior
-Computer picked Hunter
-Moa picked Mage
-Computer picked Hunter
-moa picked Mage
-Computer picked Hunter
-Moa picked Hunter
+
+Testkörning 3 kör 3 gånger med ev radbrytning i spelet
+Jessica picked Hunter
 Computer picked Mage
-moa picked Hunter
-Computer picked Mage
-Moa picked Mage
+Bajsapa picked Mage
 Computer picked Hunter
+Rövhatt picked Warrior
+Computer picked Mage
+
+
+null
+Emily picked Mage
+Computer picked Warrior
+
+Testkörningg 5 Vissa ändringar fortfarnde fel meddelande
+Emily picked Hunter
+Computer picked Warrior
+Råttan picked Mage
+Computer picked Warrior
+Annie picked Hunter
+Computer picked Mage
+
+Testkörning 6 uppvisning
+Rövhatt picked Mage
+Computer picked Hunter
+Tomas picked Warrior
+Computer picked Mage
+Reine picked Hunter
+Ulrika picked Mage
