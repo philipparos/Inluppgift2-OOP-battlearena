@@ -17,25 +17,35 @@ public class GameLogic {
     public void startGameLoop() {
         BattlePrinter.welcomeMessage();
         boolean running = true;
+
         while(running){
             Player humanPlayer = gameSetUp.createHumanPlayer(inputHandler, listHandler);
             CPUPlayer cpuPlayer = gameSetUp.createCPUPlayer(listHandler);
             battlePrinter.printFighterChoice(humanPlayer);
             battlePrinter.printFighterChoice(cpuPlayer);
-            startBattle(humanPlayer.getFighter(), cpuPlayer.getFighter());
+            battlePrinter.printBlankLine();
+
+            String matchConclusion = startBattle(humanPlayer.getFighter(), cpuPlayer.getFighter());
+
             String result = battlePrinter.resultClient(humanPlayer, cpuPlayer);
             Client.sendResult(result);
+
+            if (!matchConclusion.isBlank()) {
+                Client.sendResult(matchConclusion);
+            }
             running = inputHandler.menu();
         }
     }
 
-    public void startBattle(Fighter player1, Fighter player2) {
+    public String startBattle(Fighter player1, Fighter player2) {
         boolean isPlayerTurn = randomObject.nextBoolean();
         player1.resetHp();
         player2.resetHp();
 
 
         battlePrinter.printBattleStart(player1, player2, isPlayerTurn);
+        battlePrinter.printBlankLine();
+        String matchConclusion = " ";
         while (player1.isAlive() && player2.isAlive()) {
 
             Fighter attacker = isPlayerTurn ? player1 : player2;
@@ -45,8 +55,7 @@ public class GameLogic {
 
             if (!defender.isAlive())  {
                 battlePrinter.matchConclusion(attacker, defender);
-                String winnerFighter = battlePrinter.buildMatchConclusion(attacker, defender);
-                Client.sendResult(winnerFighter);
+                matchConclusion = battlePrinter.buildMatchConclusion(attacker, defender);
                 break;
             }
 
@@ -54,8 +63,7 @@ public class GameLogic {
 
             if (!defender.isAlive()) {
                 battlePrinter.matchConclusion(attacker, defender);
-                String winnerFighter = battlePrinter.buildMatchConclusion(attacker,defender);
-                Client.sendResult(winnerFighter);
+                matchConclusion = battlePrinter.buildMatchConclusion(attacker, defender);
                 break;
             }
 
@@ -67,5 +75,6 @@ public class GameLogic {
 
             isPlayerTurn = !isPlayerTurn;
         }
+        return matchConclusion;
     }
 }

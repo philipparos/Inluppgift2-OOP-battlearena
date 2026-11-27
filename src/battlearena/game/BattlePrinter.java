@@ -97,7 +97,6 @@ public class BattlePrinter {
     }
 
     public String resultClient(Player human, CPUPlayer CPU) {
-
         return human + "#" + CPU + "#";
     }
 
@@ -111,12 +110,6 @@ public class BattlePrinter {
         return winner.getFIGHTER_NAME() + " wins! #" + loser.getFIGHTER_NAME() + " died!";
 
     }
+}
 
-    //public String WinnerLoserClient(Fighter winner, Fighter loser) {
-        //return buildMatchConclusion(winner, loser);
-    }
-
-////    public void matchConclusion(Fighter winner, Fighter loser) {
-////        System.out.println(buildMatchConclusion(winner, loser));
-//    }
 

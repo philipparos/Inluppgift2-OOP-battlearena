@@ -30,12 +30,12 @@ public class Server {
 
                         Files.writeString(
                                 file,
-                                message.split("#")[0] + "\n" + message.split("#")[1] + "\n",
+                                message.split("#")[0] + "\n" + message.split("#")[1] + "\n\n",
                                 StandardOpenOption.APPEND
                         );
 
 
-                        System.out.println("Sparade val av Fighter!");
+                        System.out.println("Sparade meddelande!");
                         outputWriter.println("Sparat");
 
                     }
