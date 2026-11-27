@@ -108,18 +108,15 @@ public class BattlePrinter {
         System.out.println("================================="); // skriver till terminalen
     }
     public String buildMatchConclusion(Fighter winner, Fighter loser) {
-       matchConclusion(winner, loser);
-        String loserLine = "\uD83D\uDC80 \u001B[31m" + loser.getFIGHTER_NAME() + " died!\u001B[0m \uD83D\uDC80";
-        String winnerLine = "\uD83C\uDFC6 \u001B[33m" + winner.getFIGHTER_NAME() + " wins!\u001B[0m \uD83C\uDFC6";
+        return winner.getFIGHTER_NAME() + " wins! #" + loser.getFIGHTER_NAME() + " died!";
 
-        return String.join(System.lineSeparator(), loserLine, winnerLine); // SKA skriva till filen
     }
 
-    public String WinnerLoserClient(Fighter winner, Fighter loser) {
-        return buildMatchConclusion(winner, loser);
+    //public String WinnerLoserClient(Fighter winner, Fighter loser) {
+        //return buildMatchConclusion(winner, loser);
     }
 
 ////    public void matchConclusion(Fighter winner, Fighter loser) {
 ////        System.out.println(buildMatchConclusion(winner, loser));
 //    }
-}
+

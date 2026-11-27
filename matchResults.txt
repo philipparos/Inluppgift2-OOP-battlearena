@@ -1,0 +1,8 @@
+Mage wins! 
+Warrior died!
+Peter Nicklas picked Warrior
+Computer picked Mage
+Mage wins! 
+Hunter died!
+Bajs picked Hunter
+Computer picked Mage

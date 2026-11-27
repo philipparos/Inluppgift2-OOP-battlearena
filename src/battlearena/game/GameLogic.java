@@ -45,6 +45,8 @@ public class GameLogic {
 
             if (!defender.isAlive())  {
                 battlePrinter.matchConclusion(attacker, defender);
+                String winnerFighter = battlePrinter.buildMatchConclusion(attacker, defender);
+                Client.sendResult(winnerFighter);
                 break;
             }
 
@@ -52,6 +54,8 @@ public class GameLogic {
 
             if (!defender.isAlive()) {
                 battlePrinter.matchConclusion(attacker, defender);
+                String winnerFighter = battlePrinter.buildMatchConclusion(attacker,defender);
+                Client.sendResult(winnerFighter);
                 break;
             }
 
